@@ -1,5 +1,5 @@
 title: Meu Site Incrível
 description: Um site feito com Jekyll e carinho
-baseurl: ""
+baseurl: "/steniechini.github.io"
 url: ""
 theme: minima # Vamos usar um tema padrão para começar, depois você faz o seu CSS

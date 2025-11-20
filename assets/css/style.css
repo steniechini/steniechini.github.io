@@ -1,3 +1,151 @@
-body { font-family: sans-serif; padding: 20px; }
-header { border-bottom: 1px solid #ccc; padding-bottom: 10px; }
-footer { margin-top: 50px; font-size: 0.8em; color: #666; }
+/* --- 1. CONFIGURAÇÕES GERAIS E VARIÁVEIS --- */
+:root {
+    /* Paleta de Cores */
+    --bg-color: #fdfdfd;       /* Fundo quase branco (suave) */
+    --text-color: #333333;     /* Texto cinza escuro (melhor que preto puro) */
+    --accent-color: #d946ef;   /* Um roxo/rosa vibrante para links (estilo Tumblr) */
+    --border-color: #e5e5e5;   /* Linhas divisórias sutis */
+    --code-bg: #f4f4f4;        /* Fundo para blocos de código */
+    
+    /* Tipografia */
+    --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --max-width: 720px;        /* Largura máxima do conteúdo (leitura confortável) */
+}
+
+/* Reset básico */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    line-height: 1.7; /* Espaçamento entre linhas para leitura agradável */
+    font-size: 18px;  /* Tamanho de fonte moderno */
+    
+    /* Centraliza tudo e empurra o rodapé para baixo */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* --- 2. ESTRUTURA (LAYOUT) --- */
+/* Isso garante que o site fique centralizado no meio da tela */
+header, main, footer {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto; /* Centraliza horizontalmente */
+    padding: 0 20px; /* Margem interna para não colar na borda do celular */
+}
+
+main {
+    flex: 1; /* Faz o conteúdo ocupar o espaço livre, empurrando o footer pro final */
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+/* --- 3. CABEÇALHO (HEADER) --- */
+header {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+    
+    /* Alinha Logo e Menu lado a lado */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Quebra linha em celulares muito pequenos */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+header h1 a {
+    color: #111;
+    text-decoration: none;
+}
+
+/* Menu de Navegação */
+nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #666;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+nav a:hover {
+    color: var(--accent-color); /* Fica roxo ao passar o mouse */
+}
+
+/* --- 4. CONTEÚDO (POSTS E TEXTOS) --- */
+h1, h2, h3 {
+    color: #111;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    line-height: 1.2;
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+}
+
+a:hover {
+    border-bottom-color: var(--accent-color); /* Sublinhado estiloso */
+}
+
+/* Lista de posts na Home */
+ul {
+    list-style: none; /* Remove as bolinhas padrão */
+    padding: 0;
+}
+
+li {
+    margin-bottom: 15px;
+}
+
+/* Data do post */
+li span {
+    color: #999;
+    font-family: monospace; /* Fonte estilo máquina de escrever para data */
+    margin-right: 10px;
+    font-size: 0.85rem;
+}
+
+/* Imagens dentro dos posts */
+img {
+    max-width: 100%; /* Garante que a imagem nunca estoure a tela */
+    height: auto;
+    border-radius: 8px; /* Bordas arredondadas */
+    margin: 20px 0;
+}
+
+/* Citação (Blockquote) */
+blockquote {
+    border-left: 4px solid var(--accent-color);
+    margin: 20px 0;
+    padding-left: 20px;
+    font-style: italic;
+    color: #555;
+    background: #f9f9f9;
+    padding: 10px 20px;
+}
+
+/* --- 5. RODAPÉ (FOOTER) --- */
+footer {
+    padding-top: 30px;
+    padding-bottom: 50px;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.85rem;
+    color: #888;
+    text-align: center;
+}

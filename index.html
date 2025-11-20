@@ -1,39 +1,69 @@
----
-layout: default
-title: Home
----
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ste safe garden</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=MedievalSharp&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
 
-<section id="home" class="hero">
-    <div class="hero-content">
-        <div class="cyworld-title">
-            <h2>Welcome to my Minihompy!</h2>
-        </div>
-        <div class="about-me">
-            <p>Este é meu espaço pessoal. Role para baixo para ver meu diário!</p>
-        </div>
-    </div>
-    <div class="hero-image">
-        <div class="avatar-container">
-             <img src="assets/images/avatar.png" class="profile-avatar" alt="Avatar">
-        </div>
-    </div>
-</section>
+    <div class="page-frame"></div>
 
-<section id="diary" class="diary">
-    <h2>MEU DIÁRIO <span class="heart">♥</span></h2>
-    
-    <div class="diary-entries">
-        {% for post in site.posts %}
-        <div class="diary-entry">
-            <div class="diary-header">
-                <span class="diary-date">{{ post.date | date: "%d/%m/%Y" }}</span>
-                <span class="diary-mood">{{ post.mood }}</span>
-            </div>
-            <div class="diary-content">
-                <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
-                {{ post.excerpt }} <a href="{{ post.url }}">Ler mais...</a>
-            </div>
+    <header class="gothic-header">
+        <div class="logo">
+            <h1>⚜ O Grimório Digital ⚜</h1>
         </div>
-        {% endfor %}
-    </div>
-</section>
+        <nav>
+            <ul>
+                <li><a href="{{ site.baseurl }}/" class="nav-link">Início</a></li>
+                <li><a href="{{ site.baseurl }}/diario/" class="nav-link">Diário</a></li>
+            </ul>
+        </nav>
+        <audio id="bg-music" loop>
+    <source src="assets/music/y2k-theme.mp3" type="audio/mpeg">
+</audio>
+
+<button id="music-toggle" class="gothic-music-btn" style="position: fixed; bottom: 20px; right: 20px; width: 40px; height: 40px; border-radius: 50%; background: var(--card-bg); color: var(--accent-gold); border: 1px solid var(--accent-gold); cursor: pointer; z-index: 1000;">✕</button>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <div class="ornament-top">❦</div>
+                <h2>Bem-vindo </h2>
+                
+                <div class="about-me">
+                    <p></p>
+                    <p>Não há pressa.</p>
+                </div>
+
+                <a href="{{ site.baseurl }}/diario/" class="gothic-button">
+                    Abrir Diário 
+                </a>
+                <div class="ornament-bottom">❦</div>
+            </div>
+            
+            <div class="hero-image">
+                <div class="cameo-frame">
+                     <img src="assets/images/avatar.png" class="profile-avatar" alt="Retrato">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="gothic-footer">
+        
+        <p>© 2025 Stephanie Chini</p>
+        <div class="dotori-counter">
+            <i class="fas fa-moon"></i> Cristais: <span id="dotori">50</span>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

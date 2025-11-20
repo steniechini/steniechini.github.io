@@ -1,32 +1,26 @@
 /* assets/css/style.css */
-/* Estilo Completo - Versão Jekyll Cyworld */
+/* Tema: Whimsical Gothic (Estático) */
 
 /* ============================================= */
 /* 1. Variáveis e Reset */
 /* ============================================= */
 
 :root {
-    /* Paleta Y2K Pastel */
-    --pink: #FFB6C1;
-    --blue: #ADD8E6;
-    --green: #98FB98;
-    --purple: #D8BFD8;
-    --yellow: #FFFACD;
-    --white: #FFFDFA;
-    --black: #333333;
+    /* Paleta Gótica Whimsical */
+    --bg-color: #1a161f;        /* Roxo quase preto (Obsidian/Deep Plum) */
+    --card-bg: #2d2430;         /* Roxo escuro para cartões */
+    --text-main: #e6e1dd;       /* Creme "Moonlit Lace" para leitura */
+    --text-muted: #a89f91;      /* Bege acinzentado para detalhes */
     
-    /* Variáveis Funcionais */
-    --main-color: var(--pink);
-    --accent-color: #FF69B4;
-    --text-color: var(--black);
-    --shadow: rgba(0, 0, 0, 0.1);
+    --accent-gold: #c5a059;     /* Dourado Envelhecido (Antique Brass) */
+    --accent-purple: #5d406b;   /* Roxo Místico */
+    --accent-green: #2d4a3e;    /* Verde Floresta Profunda (Emerald) */
     
     /* Fontes */
-    --main-font: 'Comic Neue', cursive, sans-serif;
+    --font-title: 'MedievalSharp', cursive;
+    --font-body: 'Crimson Text', serif;
     
-    /* Layout */
-    --section-padding: 80px 10%;
-    --mobile-padding: 50px 20px;
+    --border-style: 2px solid var(--accent-gold);
 }
 
 * {
@@ -35,168 +29,101 @@
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 body {
-    font-family: var(--main-font);
-    background-color: var(--white);
-    color: var(--text-color);
-    overflow-x: hidden; /* Evita rolagem lateral indesejada */
-    line-height: 1.6;
-    position: relative;
+    font-family: var(--font-body);
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.8;
+    font-size: 18px;
+    /* Fundo sutil de papel ou textura escura (opcional) */
+    background-image: radial-gradient(#2d2430 1px, transparent 1px);
+    background-size: 20px 20px;
 }
 
-/* Links padrão */
+/* Links */
 a {
     text-decoration: none;
-    color: var(--accent-color);
-    transition: color 0.3s;
+    color: var(--accent-gold);
+    border-bottom: 1px dotted var(--accent-gold);
+    transition: all 0.3s ease;
 }
 
 a:hover {
-    color: var(--main-color);
-    text-decoration: underline;
+    color: #fff;
+    border-bottom: 1px solid #fff;
+    text-shadow: 0 0 5px var(--accent-gold);
 }
 
 /* ============================================= */
-/* 2. Elementos Globais e Animações */
+/* 2. Tipografia e Ornamentos */
 /* ============================================= */
 
-h1, h2, h3, h4 {
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 15px;
+h1, h2, h3 {
+    font-family: var(--font-title);
+    font-weight: normal;
+    letter-spacing: 1px;
+    color: var(--accent-gold);
 }
 
-/* Títulos das Seções */
-h2.section-title, section h2 {
-    font-size: 2.2rem;
-    margin-bottom: 50px;
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; margin-bottom: 20px; }
+
+.ornament-top, .ornament-bottom {
+    font-size: 2rem;
+    color: var(--accent-purple);
     text-align: center;
-    position: relative;
-    display: block; /* Garante que ocupe a linha toda */
-}
-
-/* Efeito de piscar */
-.blink { animation: blink 1.5s infinite; }
-@keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
-}
-
-/* Cursor Personalizado */
-.cursor {
-    position: fixed;
-    width: 25px;
-    height: 25px;
-    background-color: var(--accent-color);
-    border-radius: 50%;
-    mix-blend-mode: multiply;
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%);
-    transition: transform 0.1s ease, width 0.3s ease, height 0.3s ease;
-}
-.cursor.hover {
-    width: 40px;
-    height: 40px;
-    background-color: var(--main-color);
-    opacity: 0.8;
-}
-
-/* Formas Flutuantes (Fundo) */
-.floating-shapes {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: -1;
-    overflow: hidden;
-    top: 0; left: 0;
-}
-
-.shape {
-    position: absolute;
-    opacity: 0.3;
-    animation: float 15s infinite linear;
-}
-.circle { border-radius: 50%; background-color: var(--main-color); width: 100px; height: 100px;}
-.cloud { border-radius: 50px; background-color: var(--blue); width: 150px; height: 60px;}
-.shape.pink { background-color: var(--pink); }
-.shape.blue { background-color: var(--blue); }
-.shape.green { background-color: var(--green); }
-
-@keyframes float {
-    0% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-20px) rotate(5deg); }
-    100% { transform: translateY(0) rotate(0deg); }
+    margin: 10px 0;
+    opacity: 0.7;
 }
 
 /* ============================================= */
-/* 3. Header e Navegação */
+/* 3. Layout Estático */
 /* ============================================= */
 
-.cyworld-header {
+/* Moldura fixa na tela (Opcional, dá ar de livro antigo) */
+.page-frame {
+    position: fixed;
+    top: 10px; left: 10px; right: 10px; bottom: 10px;
+    border: 1px solid var(--accent-purple);
+    pointer-events: none; /* Deixa clicar através dela */
+    z-index: 900;
+    box-shadow: inset 0 0 50px rgba(0,0,0,0.8);
+}
+
+/* Header */
+.gothic-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 5%;
-    background-color: var(--main-color);
-    box-shadow: 0 2px 10px var(--shadow);
+    padding: 30px 10%;
+    border-bottom: 1px solid var(--accent-purple);
+    background-color: rgba(26, 22, 31, 0.95);
     position: sticky;
     top: 0;
     z-index: 100;
-    border-bottom: 3px solid var(--accent-color);
-}
-
-.logo h1 {
-    font-size: 1.5rem;
-    margin: 0;
-    color: var(--black);
-    text-shadow: 2px 2px 0 var(--white);
 }
 
 nav ul {
     display: flex;
+    gap: 30px;
     list-style: none;
-    gap: 15px;
-    margin: 0;
-    padding: 0;
 }
 
-.nav-btn {
-    padding: 8px 16px;
-    background-color: var(--white);
-    color: var(--black);
-    font-weight: bold;
-    border-radius: 20px;
-    border: 2px solid var(--accent-color);
-    box-shadow: 3px 3px 0 var(--shadow);
-    display: inline-block;
+.nav-link {
+    font-family: var(--font-title);
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
 }
 
-.nav-btn:hover {
-    background-color: var(--accent-color);
-    color: white;
-    transform: translateY(-3px);
-    box-shadow: 5px 5px 0 var(--shadow);
-    text-decoration: none;
-}
-
-/* ============================================= */
-/* 4. Seção Hero (Perfil) */
-/* ============================================= */
-
+/* Seção Hero */
 .hero {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: var(--section-padding);
+    justify-content: space-between;
+    padding: 80px 10%;
     min-height: 80vh;
-    background-color: var(--white);
-    position: relative;
 }
 
 .hero-content {
@@ -205,243 +132,101 @@ nav ul {
     max-width: 600px;
 }
 
+.about-me p {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    color: var(--text-muted);
+}
+
+/* Botão Gótico */
+.gothic-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 30px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--accent-gold);
+    color: var(--accent-gold);
+    font-family: var(--font-title);
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 2px; /* Bordas retas ou levemente arredondadas */
+}
+
+.gothic-button:hover {
+    background-color: var(--accent-green);
+    color: #fff;
+    border-color: var(--accent-green);
+    text-shadow: none;
+}
+
+/* Imagem / Avatar (Estilo camafeu antigo) */
 .hero-image {
     flex: 1;
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
-.avatar-container {
-    width: 250px;
-    height: 250px;
-    border: 5px solid var(--accent-color);
-    border-radius: 15px;
-    overflow: hidden;
-    background-color: var(--white);
-    box-shadow: 8px 8px 0 var(--shadow);
-    animation: bounce 2s infinite alternate;
-}
-
-.profile-avatar {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-@keyframes bounce {
-    from { transform: translateY(0); }
-    to { transform: translateY(-10px); }
-}
-
-/* ============================================= */
-/* 5. Diário (Blog Posts) - Onde o Jekyll atua */
-/* ============================================= */
-
-.diary {
-    padding: var(--section-padding);
-    background-color: var(--white);
+.cameo-frame {
+    width: 280px;
+    height: 350px;
+    background-color: var(--bg-color);
+    border: 4px double var(--accent-gold);
+    padding: 10px;
+    box-shadow: 10px 10px 0px var(--accent-purple); /* Sombra sólida, não esfumaçada */
     position: relative;
 }
 
-/* Barra decorativa no topo da seção */
-.diary::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 20px;
-    background: linear-gradient(90deg, var(--white), var(--yellow), var(--accent-color));
-}
-
-.diary-entries {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.diary-entry {
-    background-color: var(--white);
-    border: 2px dashed var(--accent-color);
-    padding: 25px;
-    margin-bottom: 30px;
-    border-radius: 15px;
-    box-shadow: 3px 3px 0 var(--shadow);
-    transition: transform 0.3s;
-}
-
-.diary-entry:hover {
-    transform: translateY(-5px);
-    box-shadow: 6px 6px 0 var(--shadow);
-}
-
-.diary-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
-    padding-bottom: 10px;
-    border-bottom: 1px dotted var(--accent-color);
-}
-
-.diary-date {
-    font-weight: bold;
-    color: var(--accent-color);
-    font-family: monospace;
-    font-size: 1.1rem;
-}
-
-.diary-mood {
-    font-size: 1.5rem;
-}
-
-/* Estilização do Conteúdo Markdown dentro do Post */
-.diary-content h3 {
-    font-size: 1.4rem;
-    margin-top: 0;
-    color: var(--black);
-}
-
-.diary-content h3 a {
-    color: var(--black);
-    text-decoration: none;
-}
-
-.diary-content h3 a:hover {
-    color: var(--accent-color);
-}
-
-.diary-content p {
-    margin-bottom: 15px;
-    font-size: 1.05rem;
-}
-
-/* Imagens dentro dos posts */
-.diary-content img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    border: 2px solid var(--black);
-    margin: 10px 0;
-}
-
-/* Citações (Blockquotes) */
-.diary-content blockquote {
-    border-left: 4px solid var(--accent-color);
-    padding-left: 15px;
-    margin: 15px 0;
-    background: #f9f9f9;
-    font-style: italic;
-    color: #555;
-}
-
-/* Listas dentro dos posts */
-.diary-content ul, .diary-content ol {
-    padding-left: 25px;
-    margin-bottom: 15px;
-}
-
-/* Botão "Ler Mais" */
-.read-more-btn {
-    display: inline-block;
-    margin-top: 10px;
-    font-weight: bold;
-    font-size: 0.9rem;
+.cameo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: sepia(30%) contrast(110%); /* Filtro levemente envelhecido */
+    border: 1px solid var(--accent-purple);
 }
 
 /* ============================================= */
-/* 6. Footer e Player de Música */
+/* 4. Footer */
 /* ============================================= */
 
-.cyworld-footer {
-    background-color: var(--main-color);
-    padding: 40px 10%;
+.gothic-footer {
     text-align: center;
-    border-top: 3px solid var(--accent-color);
-    margin-top: auto; /* Empurra footer pro final */
+    padding: 50px 20px;
+    border-top: 1px solid var(--accent-purple);
+    color: var(--text-muted);
+    font-style: italic;
+    font-size: 0.9rem;
+    background-color: var(--card-bg);
 }
 
-.music-player {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1000;
-}
-
-.music-btn {
-    background-color: var(--accent-color);
-    color: var(--black);
-    border: 2px solid var(--black);
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 3px 3px 0 var(--shadow);
-    transition: all 0.3s;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.music-btn:hover {
-    transform: scale(1.1) rotate(10deg);
-    background-color: var(--main-color);
-}
-
-/* Efeito Glitter (Gerado pelo JS) */
-.glitter {
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    pointer-events: none;
-    animation: glitter-fall 1s linear forwards;
-    z-index: 9999;
-}
-
-@keyframes glitter-fall {
-    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-    100% { transform: translateY(50px) rotate(180deg); opacity: 0; }
+.dotori-counter {
+    margin-top: 15px;
+    font-family: var(--font-title);
+    color: var(--accent-gold);
+    font-style: normal;
 }
 
 /* ============================================= */
-/* 7. Responsividade (Mobile) */
+/* 5. Responsividade */
 /* ============================================= */
-
 @media (max-width: 768px) {
-    :root {
-        --section-padding: var(--mobile-padding);
-    }
-    
-    .cyworld-header {
-        flex-direction: column;
-        gap: 15px;
-        padding: 15px;
-    }
-    
-    nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    
     .hero {
-        flex-direction: column-reverse; /* Imagem em cima no mobile */
+        flex-direction: column-reverse;
         text-align: center;
-        padding-top: 30px;
+        padding: 50px 20px;
     }
     
     .hero-content {
         padding-right: 0;
-        margin-top: 30px;
+        margin-top: 40px;
     }
     
-    .avatar-container {
-        width: 180px;
-        height: 180px;
+    .gothic-header {
+        flex-direction: column;
+        gap: 20px;
     }
-
-    .music-btn {
-        width: 50px;
-        height: 50px;
-        font-size: 0.8rem;
+    
+    .cameo-frame {
+        width: 220px;
+        height: 280px;
     }
 }

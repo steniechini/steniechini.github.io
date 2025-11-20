@@ -1,35 +1,86 @@
 ---
-layout: default
-title: Meu Diário
+layout: null
+title: Meu Diário Secreto
 permalink: /diario/
 ---
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Diário Secreto</title>
+    
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css"> 
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=MedievalSharp&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
 
-<section class="diary">
-    <div class="cyworld-title" style="text-align: center; margin-bottom: 40px;">
-        <h2>MEU DIÁRIO <span class="heart">♥</span></h2>
-        <p>Aqui eu conto um pouco sobre o meu dia a dia.</p>
-    </div>
+    <div class="page-frame"></div>
 
-    <div class="diary-entries">
-        {% for post in site.posts %}
-        <div class="diary-entry">
-            <div class="diary-header">
-                <span class="diary-date">{{ post.date | date: "%d/%m/%Y" }}</span>
-                <span class="diary-mood">{% if post.mood %}{{ post.mood }}{% else %}📝{% endif %}</span>
+    <header class="gothic-header">
+        <div class="logo">
+            <h1>⚜ O Grimório Digital ⚜</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{{ site.baseurl }}/" class="nav-link">Início</a></li>
+                <li><a href="{{ site.baseurl }}/diario/" class="nav-link">Diário Secreto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="diary">
+            <div class="diary-header-title">
+                <div class="ornament-top">❦</div>
+                <h2>Crônicas da Stephanie</h2>
+                <p class="subtitle">Pensamentos, estudos e reflexões recentes.</p>
+                <div class="ornament-bottom">❦</div>
+            </div>
+
+            <div class="diary-entries">
+                {% for post in site.posts %}
+                <div class="diary-entry">
+                    <div class="diary-post-header">
+                        <span class="diary-date">{{ post.date | date: "%d de %b, %Y" }}</span>
+                        <span class="diary-mood">{% if post.mood %}{{ post.mood }}{% else %}📜{% endif %}</span>
+                    </div>
+                    
+                    <div class="diary-content">
+                        <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+                        
+                        {{ post.excerpt }}
+                        
+                        <a href="{{ post.url }}" class="gothic-button read-more-btn">Ler Crônica Completa →</a>
+                    </div>
+                </div>
+                {% endfor %}
             </div>
             
-            <div class="diary-content">
-                <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
-                
-                {{ post.excerpt }}
-                
-                <a href="{{ post.url }}" class="read-more-btn">Ler completo →</a>
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="{{ site.baseurl }}/" class="gothic-button">Voltar ao Refúgio</a>
             </div>
+        </section>
+    </main>
+
+    <footer class="gothic-footer">
+        <p><i>"Sob as estrelas, criamos mundos."</i></p>
+        <p>© 2025 Stephanie Chini</p>
+        <div class="dotori-counter">
+            <i class="fas fa-moon"></i> Cristais: <span id="dotori">50</span>
         </div>
-        {% endfor %}
-    </div>
-    
-    <div style="text-align: center; margin-top: 30px;">
-        <a href="{{ site.baseurl }}/" class="cyworld-button">Voltar para Home</a>
-    </div>
-</section>
+        <button id="music-toggle" class="gothic-button" style="margin-top: 20px; border-radius: 50%; width: 40px; height: 40px; padding: 0; display: inline-flex; align-items: center; justify-content: center;">✕</button>
+    </footer>
+
+    <audio id="bg-music" loop>
+        <source src="{{ site.baseurl }}/assets/music/y2k-theme.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="{{ site.baseurl }}/assets/js/script.js"></script>
+</body>
+</html>

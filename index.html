@@ -1,16 +1,38 @@
-
----
-layout: default
-title: Página Inicial
----
-
-<h2>Últimas Postagens</h2>
-
-<ul>
-    {% for post in site.posts %}
-      <li>
-        <span>{{ post.date | date: "%d/%m/%Y" }}</span> - 
-        <a href="{{ post.url }}">{{ post.title }}</a>
-      </li>
-    {% endfor %}
-</ul>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seu Nome - Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Olá! Eu sou [Seu Nome]</h1>
+        <p>Desenvolvedor | Estudante | Profissional</p>
+    </div>
+    
+    <div class="content">
+        <h2>Sobre Mim</h2>
+        <p>Adicione sua descrição aqui...</p>
+        
+        <h2>Projetos</h2>
+        <p>Em breve...</p>
+        
+        <h2>Contato</h2>
+        <p>Email: seu-email@exemplo.com</p>
+    </div>
+</body>
+</html>

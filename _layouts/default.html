@@ -1,17 +1,30 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title }}</title>
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-
-    <header>
-        <h1><a href="/">Meu Blog Pessoal</a></h1>
+    <div class="cursor"></div>
+    
+    <div class="floating-shapes">
+        <div class="shape circle pink"></div>
+        <div class="shape cloud blue"></div>
+    </div>
+    
+    <header class="cyworld-header">
+        <div class="logo">
+            <h1><span class="blink">✧</span> {{ site.title }} <span class="blink">✧</span></h1>
+        </div>
         <nav>
-            <a href="/">Início</a>
-            <a href="/sobre">Sobre</a>
+            <ul>
+                <li><a href="{{ site.baseurl }}/" class="nav-btn">HOME</a></li>
+                <li><a href="{{ site.baseurl }}/#diary" class="nav-btn">DIÁRIO</a></li>
+            </ul>
         </nav>
     </header>
 
@@ -19,9 +32,13 @@
         {{ content }}
     </main>
 
-    <footer>
-        <p>Feito por mim em 2025.</p>
+    <footer class="cyworld-footer">
+        <p>© 2025 Stephanie Chini</p>
+        <div class="dotori-counter">
+            <i class="fas fa-acorn"></i> Dotori: <span id="dotori">50</span>
+        </div>
     </footer>
 
+    <script src="{{ site.baseurl }}/assets/js/script.js"></script>
 </body>
 </html>

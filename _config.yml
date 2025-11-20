@@ -1,4 +1,5 @@
-title: Meu Site Incrível
-description: Um site feito com Jekyll e carinho
+title: Stephanie's Minihompy
 baseurl: ""
 url: "https://steniechini.github.io"
+markdown: kramdown
+permalink: /:year/:month/:day/:title/

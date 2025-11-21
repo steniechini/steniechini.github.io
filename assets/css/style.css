@@ -1,26 +1,26 @@
 /* assets/css/style.css */
-/* Tema: Whimsical Gothic (Estático) */
+/* Tema: Boho Celestial / Místico Aconchegante (Estático) */
 
 /* ============================================= */
 /* 1. Variáveis e Reset */
 /* ============================================= */
 
 :root {
-    /* Paleta Gótica Whimsical */
-    --bg-color: #1a161f;        /* Roxo quase preto (Obsidian/Deep Plum) */
-    --card-bg: #2d2430;         /* Roxo escuro para cartões */
-    --text-main: #e6e1dd;       /* Creme "Moonlit Lace" para leitura */
-    --text-muted: #a89f91;      /* Bege acinzentado para detalhes */
-    
-    --accent-gold: #c5a059;     /* Dourado Envelhecido (Antique Brass) */
-    --accent-purple: #5d406b;   /* Roxo Místico */
-    --accent-green: #2d4a3e;    /* Verde Floresta Profunda (Emerald) */
-    
+    /* Paleta Solar e Lunar */
+    --blue-night: #2c3e50;      /* Azul Escuro da Noite */
+    --gold-dust: #e6b86e;       /* Dourado Envelhecido / Areia */
+    --cream-light: #fefcfb;     /* Creme Quente para texto e fundo */
+    --gray-soft: #8e8a84;       /* Cinza Suave para detalhes */
+    --terracotta: #a87661;      /* Terracota para contraste (opcional) */
+
     /* Fontes */
-    --font-title: 'MedievalSharp', cursive;
-    --font-body: 'Crimson Text', serif;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Lora', serif;
     
-    --border-style: 2px solid var(--accent-gold);
+    /* Layout */
+    --max-width-content: 960px;
+    --section-spacing: 60px;
+    --border-moon: 2px solid var(--gold-dust);
 }
 
 * {
@@ -29,204 +29,479 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: var(--font-body);
-    background-color: var(--bg-color);
-    color: var(--text-main);
-    line-height: 1.8;
-    font-size: 18px;
-    /* Fundo sutil de papel ou textura escura (opcional) */
-    background-image: radial-gradient(#2d2430 1px, transparent 1px);
-    background-size: 20px 20px;
+    background-color: var(--blue-night);
+    color: var(--cream-light);
+    line-height: 1.7;
+    font-size: 17px;
+    position: relative;
+    /* Fundo com textura sutil (inspirado nas imagens) */
+    background-image: url('{{ site.baseurl }}/assets/images/moon-stars-bg.jpg'); /* Adicione uma imagem de fundo aqui! */
+    background-size: cover;
+    background-attachment: fixed; /* Fundo fixo para efeito paralaxe sutil */
+    background-position: center center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Container principal para centralizar conteúdo */
+.container {
+    max-width: var(--max-width-content);
+    margin: 0 auto;
+    padding: 0 20px;
+    flex-grow: 1; /* Permite que o conteúdo cresça e empurre o footer */
 }
 
 /* Links */
 a {
     text-decoration: none;
-    color: var(--accent-gold);
-    border-bottom: 1px dotted var(--accent-gold);
-    transition: all 0.3s ease;
+    color: var(--gold-dust);
+    transition: color 0.3s ease;
 }
 
 a:hover {
-    color: #fff;
-    border-bottom: 1px solid #fff;
-    text-shadow: 0 0 5px var(--accent-gold);
+    color: var(--cream-light);
+    text-decoration: underline;
 }
 
-/* ============================================= */
-/* 2. Tipografia e Ornamentos */
-/* ============================================= */
-
-h1, h2, h3 {
-    font-family: var(--font-title);
-    font-weight: normal;
-    letter-spacing: 1px;
-    color: var(--accent-gold);
+/* Títulos */
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--gold-dust);
+    margin-bottom: 15px;
 }
-
 h1 { font-size: 2.5rem; }
-h2 { font-size: 2rem; margin-bottom: 20px; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
 
-.ornament-top, .ornament-bottom {
-    font-size: 2rem;
-    color: var(--accent-purple);
-    text-align: center;
-    margin: 10px 0;
-    opacity: 0.7;
+p {
+    margin-bottom: 1em;
 }
 
 /* ============================================= */
-/* 3. Layout Estático */
+/* 2. Header e Navegação */
 /* ============================================= */
 
-/* Moldura fixa na tela (Opcional, dá ar de livro antigo) */
-.page-frame {
-    position: fixed;
-    top: 10px; left: 10px; right: 10px; bottom: 10px;
-    border: 1px solid var(--accent-purple);
-    pointer-events: none; /* Deixa clicar através dela */
-    z-index: 900;
-    box-shadow: inset 0 0 50px rgba(0,0,0,0.8);
-}
-
-/* Header */
-.gothic-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px 10%;
-    border-bottom: 1px solid var(--accent-purple);
-    background-color: rgba(26, 22, 31, 0.95);
+.celestial-header {
+    background-color: rgba(44, 62, 80, 0.95); /* Azul noite semi-transparente */
+    padding: 20px 0;
+    border-bottom: 1px solid var(--gold-dust);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     position: sticky;
     top: 0;
     z-index: 100;
 }
 
+.celestial-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: var(--max-width-content); /* Garante que o header também use o max-width */
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    margin: 0;
+    color: var(--cream-light); /* Cor clara para o logo */
+}
+.logo i {
+    color: var(--gold-dust);
+    margin: 0 5px;
+}
+
 nav ul {
     display: flex;
-    gap: 30px;
     list-style: none;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-link {
-    font-family: var(--font-title);
+    font-family: var(--font-heading);
     font-size: 1.1rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border: none;
+    color: var(--cream-light);
+    padding: 5px 0;
+    position: relative;
 }
 
-/* Seção Hero */
-.hero {
+.nav-link:hover {
+    color: var(--gold-dust);
+    text-decoration: none;
+}
+.nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0%;
+    height: 2px;
+    background-color: var(--gold-dust);
+    transition: width 0.3s ease;
+}
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* ============================================= */
+/* 3. Seção Hero (Home) */
+/* ============================================= */
+
+.hero-section {
     display: flex;
+    flex-wrap: wrap; /* Permite quebrar em telas menores */
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
-    padding: 80px 10%;
-    min-height: 80vh;
+    padding: var(--section-spacing) 0;
+    text-align: center;
+    min-height: calc(100vh - 120px); /* Ajusta altura para não sobrepor header/footer */
 }
 
 .hero-content {
-    flex: 1;
-    padding-right: 50px;
+    flex: 2;
+    padding: 20px;
     max-width: 600px;
 }
 
-.about-me p {
+.welcome-text h2 {
+    font-size: 2.8rem;
     margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.welcome-text p {
     font-size: 1.2rem;
-    color: var(--text-muted);
+    color: var(--gray-soft);
 }
 
-/* Botão Gótico */
-.gothic-button {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 12px 30px;
-    background-color: var(--card-bg);
-    border: 1px solid var(--accent-gold);
-    color: var(--accent-gold);
-    font-family: var(--font-title);
-    font-size: 1.1rem;
-    cursor: pointer;
-    border-radius: 2px; /* Bordas retas ou levemente arredondadas */
-}
-
-.gothic-button:hover {
-    background-color: var(--accent-green);
-    color: #fff;
-    border-color: var(--accent-green);
-    text-shadow: none;
-}
-
-/* Imagem / Avatar (Estilo camafeu antigo) */
 .hero-image {
     flex: 1;
     display: flex;
     justify-content: center;
+    align-items: center;
+    padding: 20px;
 }
 
-.cameo-frame {
+.frame {
     width: 280px;
-    height: 350px;
-    background-color: var(--bg-color);
-    border: 4px double var(--accent-gold);
-    padding: 10px;
-    box-shadow: 10px 10px 0px var(--accent-purple); /* Sombra sólida, não esfumaçada */
+    height: 280px;
+    border-radius: 50%; /* Imagem redonda */
+    border: 3px solid var(--gold-dust);
+    background-color: var(--blue-night);
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(230, 184, 110, 0.5); /* Brilho dourado suave */
     position: relative;
 }
+.frame::before {
+    content: '';
+    position: absolute;
+    top: 5px; left: 5px; right: 5px; bottom: 5px;
+    border-radius: 50%;
+    border: 1px dashed var(--cream-light); /* Borda interna pontilhada */
+}
 
-.cameo-frame img {
+.frame img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: sepia(30%) contrast(110%); /* Filtro levemente envelhecido */
-    border: 1px solid var(--accent-purple);
+    filter: grayscale(20%) sepia(10%); /* Filtro suave para foto antiga */
 }
 
 /* ============================================= */
-/* 4. Footer */
+/* 4. Botões Estilo Celestial */
 /* ============================================= */
 
-.gothic-footer {
+.celestial-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 30px;
+    padding: 12px 25px;
+    background-color: var(--gold-dust);
+    color: var(--blue-night);
+    border: none;
+    border-radius: 5px;
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.celestial-button:hover {
+    background-color: var(--cream-light);
+    color: var(--blue-night);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    text-decoration: none;
+}
+
+.music-button {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    padding: 0;
+    font-size: 1.2rem;
+    position: fixed; /* Fixo para ser sempre acessível */
+    bottom: 25px;
+    right: 25px;
+    z-index: 1000;
+}
+.music-button.playing {
+    background-color: var(--cream-light);
+    color: var(--blue-night);
+}
+
+/* ============================================= */
+/* 5. Seção Diário (Página Separada) */
+/* ============================================= */
+
+.diary-section {
+    padding: var(--section-spacing) 0;
     text-align: center;
-    padding: 50px 20px;
-    border-top: 1px solid var(--accent-purple);
-    color: var(--text-muted);
+}
+
+.section-title {
+    margin-bottom: 50px;
+}
+.section-title h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+.section-title p {
     font-style: italic;
+    color: var(--gray-soft);
+}
+
+.post-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 2 ou 3 colunas */
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.diary-post-card {
+    background-color: rgba(var(--blue-night), 0.7); /* Fundo semi-transparente */
+    border: 1px solid var(--gold-dust);
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden; /* Para o efeito de canto */
+}
+
+.diary-post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Efeito de canto de página virada */
+.diary-post-card::before {
+    content: '';
+    position: absolute;
+    top: -1px; right: -1px;
+    width: 30px; height: 30px;
+    background: var(--gold-dust);
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+    opacity: 0.7;
+}
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px dotted var(--gray-soft);
+}
+
+.post-date {
+    font-style: italic;
+    color: var(--gray-soft);
+    font-size: 0.95rem;
+}
+
+.post-mood {
+    font-size: 1.2rem;
+}
+
+.post-title {
+    font-size: 1.6rem;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+.post-title a {
+    color: var(--cream-light);
+    border-bottom: none;
+}
+.post-title a:hover {
+    color: var(--gold-dust);
+}
+
+.post-excerpt {
+    font-size: 1rem;
+    color: var(--gray-soft);
+    margin-bottom: 20px;
+}
+
+.read-more-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: var(--gold-dust);
+    border-bottom: none;
+}
+.read-more-link:hover {
+    color: var(--cream-light);
+    text-decoration: underline;
+}
+
+.pagination {
+    margin-top: 50px;
+    text-align: center;
+}
+.back-home-button {
+    margin-top: 0;
+}
+
+/* ============================================= */
+/* 6. Conteúdo de Postagem (Páginas Individuais) */
+/* ============================================= */
+.post-page {
+    padding: var(--section-spacing) 0;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: rgba(var(--blue-night), 0.7);
+    border: 1px solid var(--gold-dust);
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    padding: 40px;
+    text-align: left;
+}
+
+.post-page h1 { /* Título do post na página individual */
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--gold-dust);
+}
+
+.post-page .meta {
+    text-align: center;
+    color: var(--gray-soft);
+    font-style: italic;
+    margin-bottom: 40px;
+    border-bottom: 1px dotted var(--gray-soft);
+    padding-bottom: 20px;
+}
+
+.post-page p {
+    margin-bottom: 1.2em;
+    font-size: 1.1rem;
+}
+
+.post-page img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 25px auto;
+    border: 2px solid var(--gold-dust);
+    border-radius: 5px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+.post-page blockquote {
+    border-left: 4px solid var(--gold-dust);
+    padding-left: 20px;
+    margin: 25px 0;
+    color: var(--gray-soft);
+    font-style: italic;
+    background-color: rgba(var(--blue-night), 0.5);
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-radius: 0 5px 5px 0;
+}
+
+.post-page ul, .post-page ol {
+    margin-bottom: 20px;
+    padding-left: 30px;
+}
+
+/* ============================================= */
+/* 7. Footer */
+/* ============================================= */
+
+.celestial-footer {
+    background-color: rgba(44, 62, 80, 0.95);
+    padding: 30px 20px;
+    text-align: center;
+    border-top: 1px solid var(--gold-dust);
+    color: var(--gray-soft);
     font-size: 0.9rem;
-    background-color: var(--card-bg);
+    margin-top: var(--section-spacing); /* Espaçamento entre conteúdo e footer */
 }
 
-.dotori-counter {
-    margin-top: 15px;
-    font-family: var(--font-title);
-    color: var(--accent-gold);
-    font-style: normal;
+.cosmic-elements {
+    margin: 15px 0;
+    font-size: 1.3rem;
+    color: var(--gold-dust);
+    display: flex;
+    justify-content: center;
+    gap: 15px;
 }
 
 /* ============================================= */
-/* 5. Responsividade */
+/* 8. Responsividade */
 /* ============================================= */
+
 @media (max-width: 768px) {
-    .hero {
-        flex-direction: column-reverse;
-        text-align: center;
-        padding: 50px 20px;
-    }
-    
-    .hero-content {
-        padding-right: 0;
-        margin-top: 40px;
-    }
-    
-    .gothic-header {
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.8rem; }
+    .celestial-header .container {
         flex-direction: column;
-        gap: 20px;
+        gap: 15px;
     }
-    
-    .cameo-frame {
-        width: 220px;
-        height: 280px;
+    nav ul {
+        gap: 15px;
+    }
+    .hero-section {
+        flex-direction: column;
+        min-height: auto;
+    }
+    .hero-content {
+        padding: 0;
+        order: 2; /* Texto abaixo da imagem */
+    }
+    .hero-image {
+        order: 1; /* Imagem acima do texto */
+        margin-bottom: 30px;
+    }
+    .frame {
+        width: 200px;
+        height: 200px;
+    }
+    .post-grid {
+        grid-template-columns: 1fr; /* Uma coluna em mobile */
+    }
+    .post-page {
+        padding: 20px;
+    }
+    .music-button {
+        bottom: 15px;
+        right: 15px;
     }
 }

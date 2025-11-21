@@ -1,9 +1,9 @@
-// script.js - Versão Whimsical Gothic (Estática)
+// script.js - Versão Limpa e Estática (Boho Celestial)
 
 document.addEventListener('DOMContentLoaded', function() {
     initVisitorCounter();
-    initDotoriSystem(); // Sistema de Cristais
-    initMusicPlayer();  // Player de música
+    // initDotoriSystem(); // Se quiser, adicione o sistema de Cristais de volta
+    initMusicPlayer();
     initCurrentYear();
 });
 
@@ -12,57 +12,18 @@ document.addEventListener('DOMContentLoaded', function() {
 // =============================================
 
 function initVisitorCounter() {
-    // Tenta pegar o número salvo ou começa do 0
     let count = localStorage.getItem('visitCount') || 0;
     count = parseInt(count) + 1;
-    
-    // Salva o novo número
     localStorage.setItem('visitCount', count);
     
-    // Atualiza na tela se o elemento existir
-    const counterElement = document.getElementById('counter');
+    const counterElement = document.getElementById('counter'); // Certifique-se que o id 'counter' existe no HTML
     if(counterElement) {
         counterElement.textContent = count;
     }
-    
-    // Dá um cristal a cada 5 visitas
-    if (count % 5 === 0) {
-        addDotori(1);
-    }
-}
-
-// =============================================
-// Sistema de Cristais (Antigo Dotori)
-// =============================================
-
-function initDotoriSystem() {
-    let dotori = localStorage.getItem('dotori');
-    
-    // Se for a primeira vez, começa com 50 cristais
-    if (dotori === null) {
-        dotori = 50; 
-        localStorage.setItem('dotori', dotori);
-    }
-    updateDotoriDisplay();
-}
-
-// Função para adicionar cristais
-function addDotori(amount) {
-    let dotori = parseInt(localStorage.getItem('dotori')) || 0;
-    dotori += amount;
-    localStorage.setItem('dotori', dotori);
-    updateDotoriDisplay();
-    
-    console.log(`Você ganhou ${amount} cristais!`);
-}
-
-// Atualiza o número no rodapé
-function updateDotoriDisplay() {
-    const dotori = parseInt(localStorage.getItem('dotori')) || 0;
-    const display = document.getElementById('dotori');
-    if(display) {
-        display.textContent = dotori;
-    }
+    // Lógica para Dotori (Cristais) se você mantiver
+    // if (count % 5 === 0) {
+    //     addDotori(1); 
+    // }
 }
 
 // =============================================
@@ -70,27 +31,23 @@ function updateDotoriDisplay() {
 // =============================================
 
 function initMusicPlayer() {
-    // Procura pelos elementos no HTML
     const musicToggle = document.getElementById('music-toggle');
     const bgMusic = document.getElementById('bg-music');
     
-    // Se não tiver botão de música no HTML, a função para aqui para não dar erro
     if(!musicToggle || !bgMusic) return;
 
-    // Verifica se estava tocando antes
     const musicState = localStorage.getItem('musicState');
     
     if (musicState === 'on') {
         bgMusic.play().catch(e => console.log("Autoplay bloqueado - clique para tocar"));
-        musicToggle.textContent = '♪'; // Ícone de música tocando
+        musicToggle.textContent = '♪';
         musicToggle.classList.add('playing');
     } else {
         bgMusic.pause();
-        musicToggle.textContent = '✕'; // Ícone de música parada
+        musicToggle.textContent = '✕';
         musicToggle.classList.remove('playing');
     }
     
-    // Evento de clique no botão
     musicToggle.addEventListener('click', function() {
         if (bgMusic.paused) {
             bgMusic.play();
@@ -107,7 +64,7 @@ function initMusicPlayer() {
 }
 
 // =============================================
-// Utilidades
+// Utilidades (Ano Atual)
 // =============================================
 
 function initCurrentYear() {
@@ -116,3 +73,8 @@ function initCurrentYear() {
         yearSpan.textContent = new Date().getFullYear();
     }
 }
+
+// // Funções de Dotori/Cristais (Descomente se quiser usar no HTML)
+// function initDotoriSystem() { /* ... */ }
+// function addDotori(amount) { /* ... */ }
+// function updateDotoriDisplay() { /* ... */ }

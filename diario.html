@@ -1,6 +1,6 @@
 ---
 layout: null
-title: Meu Diário Secreto
+title: Diário Cósmico
 permalink: /diario/
 ---
 <!DOCTYPE html>
@@ -8,73 +8,65 @@ permalink: /diario/
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Diário Secreto</title>
+    <title>{{ page.title }}</title>
     
-    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css"> 
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=MedievalSharp&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <div class="page-frame"></div>
-
-    <header class="gothic-header">
+    <header class="celestial-header">
         <div class="logo">
-            <h1>⚜ O Grimório Digital ⚜</h1>
+            <h1><i class="fas fa-sun"></i> Stephanie's Sanctuary <i class="fas fa-moon"></i></h1>
         </div>
         <nav>
             <ul>
-                <li><a href="{{ site.baseurl }}/" class="nav-link">Início</a></li>
-                <li><a href="{{ site.baseurl }}/diario/" class="nav-link">Diário Secreto</a></li>
+                <li><a href="{{ site.baseurl }}/" class="nav-link">Home</a></li>
+                <li><a href="{{ site.baseurl }}/diario/" class="nav-link">Diário Cósmico</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
-        <section class="diary">
-            <div class="diary-header-title">
-                <div class="ornament-top">❦</div>
-                <h2>Crônicas da Stephanie</h2>
-                <p class="subtitle">Pensamentos, estudos e reflexões recentes.</p>
-                <div class="ornament-bottom">❦</div>
+    <main class="container">
+        <section class="diary-section">
+            <div class="section-title">
+                <h2>Onde as Estrelas Escutam</h2>
+                <p>Fragmentos de pensamentos e momentos sob o céu noturno.</p>
             </div>
 
-            <div class="diary-entries">
+            <div class="post-grid">
                 {% for post in site.posts %}
-                <div class="diary-entry">
-                    <div class="diary-post-header">
-                        <span class="diary-date">{{ post.date | date: "%d de %b, %Y" }}</span>
-                        <span class="diary-mood">{% if post.mood %}{{ post.mood }}{% else %}📜{% endif %}</span>
+                <article class="diary-post-card">
+                    <div class="post-header">
+                        <span class="post-date">{{ post.date | date: "%d de %B, %Y" }}</span>
+                        <span class="post-mood">{% if post.mood %}{{ post.mood }}{% else %}✨{% endif %}</span>
                     </div>
-                    
-                    <div class="diary-content">
-                        <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
-                        
+                    <h3 class="post-title"><a href="{{ post.url }}">{{ post.title }}</a></h3>
+                    <div class="post-excerpt">
                         {{ post.excerpt }}
-                        
-                        <a href="{{ post.url }}" class="gothic-button read-more-btn">Ler Crônica Completa →</a>
                     </div>
-                </div>
+                    <a href="{{ post.url }}" class="read-more-link">Continuar Lendo <i class="fas fa-arrow-right"></i></a>
+                </article>
                 {% endfor %}
             </div>
             
-            <div style="text-align: center; margin-top: 50px;">
-                <a href="{{ site.baseurl }}/" class="gothic-button">Voltar ao Refúgio</a>
+            <div class="pagination">
+                <a href="{{ site.baseurl }}/" class="celestial-button back-home-button">Voltar à Home</a>
             </div>
         </section>
     </main>
 
-    <footer class="gothic-footer">
-        <p><i>"Sob as estrelas, criamos mundos."</i></p>
-        <p>© 2025 Stephanie Chini</p>
-        <div class="dotori-counter">
-            <i class="fas fa-moon"></i> Cristais: <span id="dotori">50</span>
+    <footer class="celestial-footer">
+        <p>&copy; 2025 Stephanie Chini</p>
+        <div class="cosmic-elements">
+            <i class="fas fa-sun"></i> <i class="fas fa-moon"></i> <i class="fas fa-star"></i>
         </div>
-        <button id="music-toggle" class="gothic-button" style="margin-top: 20px; border-radius: 50%; width: 40px; height: 40px; padding: 0; display: inline-flex; align-items: center; justify-content: center;">✕</button>
+        <button id="music-toggle" class="celestial-button music-button" style="display: inline-flex; align-items: center; justify-content: center;">♪</button>
     </footer>
 
     <audio id="bg-music" loop>

@@ -1,71 +1,62 @@
 ---
 layout: null
+title: where the story ends
 ---
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grimório da Stephanie</title>
+    <title>{{ page.title }}</title>
     
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=MedievalSharp&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <div class="page-frame"></div>
-
-    <header class="gothic-header">
+    <header class="celestial-header">
         <div class="logo">
-            <h1>⚜ O Grimório Digital ⚜</h1>
+            <h1><i class="fas fa-sun"></i> Stephanie's Sanctuary <i class="fas fa-moon"></i></h1>
         </div>
         <nav>
             <ul>
-                <li><a href="{{ site.baseurl }}/" class="nav-link">Início</a></li>
-                <li><a href="{{ site.baseurl }}/diario/" class="nav-link">Diário Secreto</a></li>
+                <li><a href="{{ site.baseurl }}/" class="nav-link">Home</a></li>
+                <li><a href="{{ site.baseurl }}/diario/" class="nav-link">Diário Cósmico</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
-        <section id="home" class="hero">
+    <main class="container">
+        <section id="home" class="hero-section">
             <div class="hero-content">
-                <div class="ornament-top">❦</div>
-                <h2>Bem-vindo ao meu refúgio.</h2>
-                
-                <div class="about-me">
-                    <p>Entre e fique à vontade. Aqui guardo meus pensamentos, estudos e feitiços digitais sob a luz do luar.</p>
-                    <p>Não há pressa; o tempo aqui corre devagar.</p>
+                <div class="welcome-text">
+                    <h2>Bem-vinda sob o Sol e a Lua.</h2>
+                    <p>Um refúgio para pensamentos, reflexões e inspirações celestiais.</p>
                 </div>
-
-                <a href="{{ site.baseurl }}/diario/" class="gothic-button">
-                    Abrir Diário 🕯️
+                <a href="{{ site.baseurl }}/diario/" class="celestial-button">
+                    Explorar Diário <i class="fas fa-star"></i>
                 </a>
-                <div class="ornament-bottom">❦</div>
             </div>
             
             <div class="hero-image">
-                <div class="cameo-frame">
-                     <img src="{{ site.baseurl }}/assets/images/avatar.png" class="profile-avatar" alt="Retrato Gótico">
+                <div class="frame">
+                     <img src="{{ site.baseurl }}/assets/images/avatar.png" alt="Retrato Celestial">
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="gothic-footer">
-        <p><i>"Sob as estrelas, criamos mundos."</i></p>
-        <p>© 2025 Stephanie Chini</p>
-        
-        <div class="dotori-counter">
-            <i class="fas fa-moon"></i> Cristais: <span id="dotori">50</span>
+    <footer class="celestial-footer">
+        <p>&copy; 2025 Stephanie Chini</p>
+        <div class="cosmic-elements">
+            <i class="fas fa-sun"></i> <i class="fas fa-moon"></i> <i class="fas fa-star"></i>
         </div>
-        
-        <button id="music-toggle" class="gothic-button" style="margin-top: 20px; border-radius: 50%; width: 40px; height: 40px; padding: 0; display: inline-flex; align-items: center; justify-content: center;">✕</button>
+        <button id="music-toggle" class="celestial-button music-button" style="display: inline-flex; align-items: center; justify-content: center;">♪</button>
     </footer>
 
     <audio id="bg-music" loop>

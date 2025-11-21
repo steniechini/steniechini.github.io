@@ -1,18 +1,11 @@
-/* assets/css/style.css */
-/* Tema: Boho Celestial / Místico Aconchegante (Estático) */
-
-/* ============================================= */
-/* 1. Variáveis e Reset */
-/* ============================================= */
 
 :root {
     /* Paleta Solar e Lunar */
-    --blue-night: #2c3e50;      /* Azul Escuro da Noite */
-    --gold-dust: #e6b86e;       /* Dourado Envelhecido / Areia */
-    --cream-light: #fefcfb;     /* Creme Quente para texto e fundo */
-    --gray-soft: #8e8a84;       /* Cinza Suave para detalhes */
-    --terracotta: #a87661;      /* Terracota para contraste (opcional) */
-
+    --blue-night: #2c3e50;    
+    --gold-dust: #e6b86e;       
+     --cream-light: #fefcfb;     
+    --gray-soft: #8e8a84;       
+    --terracotta: #a87661;      
     /* Fontes */
     --font-heading: 'Playfair Display', serif;
     --font-body: 'Lora', serif;
@@ -41,7 +34,7 @@ body {
     font-size: 17px;
     position: relative;
     /* Fundo com textura sutil (inspirado nas imagens) */
-    background-image: url('{{ site.baseurl }}/assets/images/moon-stars-bg.jpg'); /* Adicione uma imagem de fundo aqui! */
+    background-image: url('{{ site.baseurl }}/assets/images/index_bg.jpg'); /* Adicione uma imagem de fundo aqui! */
     background-size: cover;
     background-attachment: fixed; /* Fundo fixo para efeito paralaxe sutil */
     background-position: center center;

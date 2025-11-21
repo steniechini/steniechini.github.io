@@ -1,6 +1,6 @@
 ---
 layout: null
-title: where the story ends
+title: Santuário Solar e Lunar
 ---
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -20,15 +20,17 @@ title: where the story ends
 <body>
 
     <header class="celestial-header">
-        <div class="logo">
-            <h1><i class="fas fa-sun"></i> Stephanie's Sanctuary <i class="fas fa-moon"></i></h1>
+        <div class="container">
+            <div class="logo">
+                <h1><i class="fas fa-sun"></i> Stephanie's Sanctuary <i class="fas fa-moon"></i></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="{{ site.baseurl }}/" class="nav-link">Home</a></li>
+                    <li><a href="{{ site.baseurl }}/diario/" class="nav-link">Diário Cósmico</a></li>
+                    <li><a href="{{ site.baseurl }}/reviews/" class="nav-link">Reviews</a></li> </ul>
+            </nav>
         </div>
-        <nav>
-            <ul>
-                <li><a href="{{ site.baseurl }}/" class="nav-link">Home</a></li>
-                <li><a href="{{ site.baseurl }}/diario/" class="nav-link">Diário Cósmico</a></li>
-            </ul>
-        </nav>
     </header>
 
     <main class="container">
@@ -49,6 +51,34 @@ title: where the story ends
                 </div>
             </div>
         </section>
+
+        <section class="latest-posts-section">
+            <div class="section-title">
+                <h2>Últimas Crônicas</h2>
+                <p>O que aconteceu por último sob a luz da lua.</p>
+            </div>
+            
+            <div class="post-grid home-posts-list">
+                {% for post in site.posts limit: 3 %} 
+                <article class="diary-post-card">
+                    <div class="post-header">
+                        <span class="post-date">{{ post.date | date: "%d de %B" }}</span>
+                        <span class="post-mood">{% if post.mood %}{{ post.mood }}{% else %}📜{% endif %}</span>
+                    </div>
+                    <h3 class="post-title"><a href="{{ post.url }}">{{ post.title }}</a></h3>
+                    <div class="post-excerpt">
+                        {{ post.excerpt }}
+                    </div>
+                    <a href="{{ post.url }}" class="read-more-link">Continuar Lendo →</a>
+                </article>
+                {% endfor %}
+            </div>
+            
+            <div class="pagination">
+                 <a href="{{ site.baseurl }}/diario/" class="celestial-button back-home-button">Ver Todo o Diário</a>
+            </div>
+        </section>
+        
     </main>
 
     <footer class="celestial-footer">

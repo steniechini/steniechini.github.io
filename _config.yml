@@ -3,3 +3,8 @@ baseurl: ""
 url: "https://steniechini.github.io"
 markdown: kramdown
 permalink: /:year/:month/:day/:title/
+# --- Configuração de Coleções ---
+collections:
+  reviews:
+    output: true # Garante que as reviews virem páginas individuais
+    permalink: /reviews/:path/

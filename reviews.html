@@ -1,7 +1,7 @@
 ---
 layout: null
-title: Diário Cósmico
-permalink: /diario/
+title: Minhas Avaliações Cósmicas
+permalink: /reviews/
 ---
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -10,17 +10,15 @@ permalink: /diario/
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title }}</title>
     
-    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css"> 
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-   ...
     <header class="celestial-header">
         <div class="logo">
             <h1><i class="fas fa-sun"></i> Stephanie's Sanctuary <i class="fas fa-moon"></i></h1>
@@ -33,27 +31,26 @@ permalink: /diario/
             </ul>
         </nav>
     </header>
-...
 
     <main class="container">
         <section class="diary-section">
             <div class="section-title">
-                <h2>Onde as Estrelas Escutam</h2>
-                <p>Fragmentos de pensamentos e momentos sob o céu noturno.</p>
+                <h2>Avaliações Sob a Luz Estelar</h2>
+                <p>Minhas opiniões sobre livros, filmes e descobertas místicas.</p>
             </div>
 
             <div class="post-grid">
-                {% for post in site.posts %}
+                {% for review in site.reviews %}
                 <article class="diary-post-card">
                     <div class="post-header">
-                        <span class="post-date">{{ post.date | date: "%d de %B, %Y" }}</span>
-                        <span class="post-mood">{% if post.mood %}{{ post.mood }}{% else %}✨{% endif %}</span>
+                        <span class="post-date">Rating: {{ review.rating | default: "N/A" }}</span>
+                        <span class="post-mood">⭐</span>
                     </div>
-                    <h3 class="post-title"><a href="{{ post.url }}">{{ post.title }}</a></h3>
+                    <h3 class="post-title"><a href="{{ review.url }}">{{ review.title }}</a></h3>
                     <div class="post-excerpt">
-                        {{ post.excerpt }}
+                        {{ review.excerpt }}
                     </div>
-                    <a href="{{ post.url }}" class="read-more-link">Continuar Lendo <i class="fas fa-arrow-right"></i></a>
+                    <a href="{{ review.url }}" class="read-more-link">Ler Resenha Completa →</a>
                 </article>
                 {% endfor %}
             </div>

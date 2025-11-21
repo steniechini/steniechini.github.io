@@ -4,41 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title }}</title>
+    
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div class="cursor"></div>
-    
-    <div class="floating-shapes">
-        <div class="shape circle pink"></div>
-        <div class="shape cloud blue"></div>
-    </div>
-    
-    <header class="cyworld-header">
-        <div class="logo">
-            <h1><span class="blink">✧</span> {{ site.title }} <span class="blink">✧</span></h1>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="{{ site.baseurl }}/" class="nav-btn">HOME</a></li>
-                <li><a href="{{ site.baseurl }}/diario/" class="nav-btn">DIÁRIO</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <main>
+    {% include header_celestial.html %}
+
+    <main class="container">
         {{ content }}
     </main>
 
-    <footer class="cyworld-footer">
-        <p>© 2025 Stephanie Chini</p>
-        <div class="dotori-counter">
-            <i class="fas fa-acorn"></i> Dotori: <span id="dotori">50</span>
-        </div>
-    </footer>
-
-    <script src="{{ site.baseurl }}/assets/js/script.js"></script>
+    {% include footer_celestial.html %}
+    
 </body>
 </html>

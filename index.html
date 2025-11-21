@@ -1,98 +1,48 @@
 ---
-layout: null
-title: Santuário Solar e Lunar
+layout: default
+title: Where the story ends
 ---
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ page.title }}</title>
-    
-    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
-
-    <header class="celestial-header">
-        <div class="container">
-            <div class="logo">
-                <h1><i class="fas fa-sun"></i> Stephanie's Sanctuary <i class="fas fa-moon"></i></h1>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="{{ site.baseurl }}/" class="nav-link">Home</a></li>
-                    <li><a href="{{ site.baseurl }}/diario/" class="nav-link">Diário Cósmico</a></li>
-                    <li><a href="{{ site.baseurl }}/reviews/" class="nav-link">Reviews</a></li> </ul>
-            </nav>
+<section id="home" class="hero-section">
+    <div class="hero-content">
+        <div class="welcome-text">
+            <h2>Bem-vindos .</h2>
+            <p>.</p>
         </div>
-    </header>
+        <a href="{{ site.baseurl }}/diario/" class="celestial-button">
+            Explorar Diário <i class="fas fa-star"></i>
+        </a>
+    </div>
+    
+    <div class="hero-image">
+        <div class="frame">
+             <img src="{{ site.baseurl }}/assets/images/avatar.png" alt="Retrato Celestial">
+        </div>
+    </div>
+</section>
 
-    <main class="container">
-        <section id="home" class="hero-section">
-            <div class="hero-content">
-                <div class="welcome-text">
-                    <h2>Bem-vinda sob o Sol e a Lua.</h2>
-                    <p>Um refúgio para pensamentos, reflexões e inspirações celestiais.</p>
-                </div>
-                <a href="{{ site.baseurl }}/diario/" class="celestial-button">
-                    Explorar Diário <i class="fas fa-star"></i>
-                </a>
-            </div>
-            
-            <div class="hero-image">
-                <div class="frame">
-                     <img src="{{ site.baseurl }}/assets/images/avatar.png" alt="Retrato Celestial">
-                </div>
-            </div>
-        </section>
-
-        <section class="latest-posts-section">
-            <div class="section-title">
-                <h2>Últimas Crônicas</h2>
-                <p>O que aconteceu por último sob a luz da lua.</p>
-            </div>
-            
-            <div class="post-grid home-posts-list">
-                {% for post in site.posts limit: 3 %} 
-                <article class="diary-post-card">
-                    <div class="post-header">
-                        <span class="post-date">{{ post.date | date: "%d de %B" }}</span>
-                        <span class="post-mood">{% if post.mood %}{{ post.mood }}{% else %}📜{% endif %}</span>
-                    </div>
-                    <h3 class="post-title"><a href="{{ post.url }}">{{ post.title }}</a></h3>
-                    <div class="post-excerpt">
-                        {{ post.excerpt }}
-                    </div>
-                    <a href="{{ post.url }}" class="read-more-link">Continuar Lendo →</a>
-                </article>
-                {% endfor %}
-            </div>
-            
-            <div class="pagination">
-                 <a href="{{ site.baseurl }}/diario/" class="celestial-button back-home-button">Ver Todo o Diário</a>
-            </div>
-        </section>
+<section class="latest-posts-section">
+    <div class="section-title">
+        <h2>Últimos posts </h2>
         
-    </main>
-
-    <footer class="celestial-footer">
-        <p>&copy; 2025 Stephanie Chini</p>
-        <div class="cosmic-elements">
-            <i class="fas fa-sun"></i> <i class="fas fa-moon"></i> <i class="fas fa-star"></i>
-        </div>
-        <button id="music-toggle" class="celestial-button music-button" style="display: inline-flex; align-items: center; justify-content: center;">♪</button>
-    </footer>
-
-    <audio id="bg-music" loop>
-        <source src="{{ site.baseurl }}/assets/music/y2k-theme.mp3" type="audio/mpeg">
-    </audio>
-
-    <script src="{{ site.baseurl }}/assets/js/script.js"></script>
-</body>
-</html>
+    </div>
+    
+    <div class="post-grid home-posts-list">
+        {% for post in site.posts limit: 3 %} 
+        <article class="diary-post-card">
+            <div class="post-header">
+                <span class="post-date">{{ post.date | date: "%d de %B" }}</span>
+                <span class="post-mood">{% if post.mood %}{{ post.mood }}{% else %}📜{% endif %}</span>
+            </div>
+            <h3 class="post-title"><a href="{{ post.url }}">{{ post.title }}</a></h3>
+            <div class="post-excerpt">
+                {{ post.excerpt }}
+            </div>
+            <a href="{{ post.url }}" class="read-more-link">Continuar Lendo →</a>
+        </article>
+        {% endfor %}
+    </div>
+    
+    <div class="pagination">
+         <a href="{{ site.baseurl }}/diario/" class="celestial-button back-home-button">Ver Todo o Diário</a>
+    </div>
+</section>

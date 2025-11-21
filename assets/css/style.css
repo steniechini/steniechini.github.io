@@ -34,7 +34,7 @@ body {
     font-size: 17px;
     position: relative;
     /* Fundo com textura sutil (inspirado nas imagens) */
-    background-image: url('{{ site.baseurl }}/assets/images/index_bg.jpg'); /* Adicione uma imagem de fundo aqui! */
+    background-image: url('{{ site.baseurl }}/assets/images/index_bg.jpeg'); /* Adicione uma imagem de fundo aqui! */
     background-size: cover;
     background-attachment: fixed; /* Fundo fixo para efeito paralaxe sutil */
     background-position: center center;

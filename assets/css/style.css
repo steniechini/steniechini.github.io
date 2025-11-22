@@ -11,20 +11,18 @@
     --moss-green: #8a9b68;
     --cream-light: #f5f1e8;
     
-    /* Fontes góticas e nostálgicas */
-    --font-heading: 'UnifrakturMaguntia', cursive, 'Times New Roman', serif;
-    --font-body: 'Courier New', monospace, 'Times New Roman', serif;
-    --font-decorative: 'Papyrus', 'Comic Sans MS', cursive;
+   
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Lora', serif;
+    --font-decorative: 'Lora', cursive;
     
-    /* Layout Geocities */
+
     --max-width-content: 800px;
     --section-spacing: 40px;
     --sidebar-width: 200px;
 }
 
-/* ============================================= */
-/* 2. Fundo e corpo principais */
-/* ============================================= */
+
 body {
     font-family: var(--font-body);
     background-color: var(--deep-purple);
@@ -44,9 +42,7 @@ body {
     margin: 5px;
 }
 
-/* ============================================= */
-/* 3. Layout com Sidebar estilo anos 90 */
-/* ============================================= */
+
 .main-container {
     display: flex;
     max-width: 1200px;
@@ -55,7 +51,7 @@ body {
     flex-grow: 1;
 }
 
-/* Sidebar estilo Geocities */
+
 .sidebar {
     width: var(--sidebar-width);
     background: linear-gradient(135deg, var(--violet-dark), var(--deep-purple));
@@ -298,9 +294,7 @@ nav ul {
     padding-bottom: 10px;
 }
 
-/* ============================================= */
-/* 9. Botões nostálgicos */
-/* ============================================= */
+
 .celestial-button {
     background: 
         linear-gradient(45deg, var(--violet-dark), var(--dusty-rose));
@@ -323,9 +317,7 @@ nav ul {
     text-decoration: none;
 }
 
-/* ============================================= */
-/* 10. Footer extravagante */
-/* ============================================= */
+
 .celestial-footer {
     background: var(--deep-purple);
     border: 4px double var(--silver-mist);
@@ -353,9 +345,7 @@ nav ul {
     margin: 15px 0;
 }
 
-/* ============================================= */
-/* 11. Elementos decorativos Geocities */
-/* ============================================= */
+
 .marquee-container {
     background: var(--violet-dark);
     border: 2px dotted var(--silver-mist);
@@ -384,7 +374,7 @@ nav ul {
     letter-spacing: 10px;
 }
 
-/* Contador de visitas fake */
+
 .visitor-counter {
     background: black;
     border: 2px inset var(--silver-mist);
@@ -395,9 +385,7 @@ nav ul {
     width: fit-content;
     font-size: 0.9rem;
 }
-/* ============================================= */
-/* Header Gótico Atualizado */
-/* ============================================= */
+
 .celestial-header {
     background: 
         linear-gradient(45deg, var(--violet-dark), var(--deep-purple)),

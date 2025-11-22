@@ -631,4 +631,116 @@ nav ul {
     .logo h1 {
         font-size: 2.2rem;
     }
+}/* ============================================= */
+/* 9. Responsividade (MOBILE-FIRST ADAPTATION) */
+/* ============================================= */
+
+/* Garantir que a página não tenha scroll horizontal em hipótese alguma */
+body {
+    overflow-x: hidden;
+}
+
+@media (max-width: 768px) {
+    /* 1. LAYOUT PRINCIPAL: Mudar de lado a lado para empilhado */
+    .main-container {
+        flex-direction: column;
+        max-width: 100%; /* Ocupar toda a largura disponível */
+        padding: 0 5px; /* Reduzir padding para aproveitar mais espaço */
+    }
+
+    /* 2. SIDEBAR: Ocupar a largura total e se comportar como um bloco normal */
+    .sidebar {
+        width: 100%;
+        margin-right: 0; /* Remover margem lateral */
+        margin-bottom: 20px; /* Adicionar espaço entre sidebar e conteúdo principal */
+        min-height: auto; /* Permite que o sidebar diminua */
+        order: 1; /* Colocar a sidebar no topo em mobile, antes do conteúdo */
+    }
+    
+    .sidebar::before {
+        font-size: 0.7rem; /* Reduzir texto "UNDER CONSTRUCTION" */
+    }
+    
+    /* 3. CONTEÚDO PRINCIPAL: Ocupar a largura total e reduzir padding */
+    .main-content {
+        padding: 15px;
+        order: 2; /* Manter o conteúdo após a sidebar */
+    }
+    
+    .main-content::after {
+        width: 30px; /* Reduzir o ícone de canto */
+        height: 30px;
+    }
+
+    /* 4. HEADER: Ajustar elementos e remover ícones laterais */
+    .celestial-header {
+        padding: 10px 0 5px 0; /* Header mais compacto */
+    }
+    
+    .celestial-header::before,
+    .celestial-header::after {
+        display: none; /* Esconder os ícones de cruz para economizar espaço */
+    }
+    
+    .logo h1 {
+        font-size: 2.2rem;
+    }
+    
+    .tagline {
+        font-size: 0.9rem;
+    }
+    
+    /* 5. NAVEGAÇÃO: Ajustar empacotamento e tamanho dos links */
+    .celestial-header nav ul {
+        flex-wrap: wrap; /* Permitir que os links quebrem a linha */
+        gap: 8px;
+    }
+    
+    .nav-link {
+        font-size: 1rem;
+        padding: 6px 10px;
+    }
+
+    /* 6. HERO: Ajustar tamanho do texto e espaçamento */
+    .hero-section {
+        padding: 20px;
+        margin: 15px 0;
+    }
+    
+    .hero-section::before {
+        font-size: 1rem; /* Reduzir divisória */
+    }
+
+    .welcome-text h1 {
+        font-size: 1.8rem;
+    }
+
+    /* 7. RODAPÉ: Empilhar conteúdo do footer */
+    .celestial-footer {
+        padding: 15px 10px;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    
+    /* 8. BOTÃO DE MÚSICA (Fixo) */
+    .music-button {
+        bottom: 10px;
+        right: 10px;
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+        /* Esconder o texto para não atrapalhar a visualização */
+        display: flex; 
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .music-text {
+        display: none;
+    }
 }

@@ -2,47 +2,86 @@
 /* 1. Variáveis atualizadas para Whimsical Gothic */
 /* ============================================= */
 :root {
-    /* Nova paleta Whimsical Gothic */
-    --deep-purple: #1a1429;
-    --violet-dark: #4c3068;
-    --dusty-rose: #b4869f;
-    --antique-gold: #d4af37;
-    --silver-mist: #c0c0c0;
-    --moss-green: #8a9b68;
-    --cream-light: #f5f1e8;
+    /* Paleta Whimsical Gothic (Verde Musgo e Roxo Profundo) */
+    --deep-purple: #372549; /* Roxo escuro para o fundo (Nightshade) */
+    --violet-dark: #584175; /* Roxo ligeiramente mais claro para detalhes */
+    --dusty-rose: #a87661; /* Cor de acento (Bronze/Terracota) */
+    --antique-gold: #c6b578; /* Ouro envelhecido/Mostarda (Destaque principal) */
+    --moss-green: #8a9b68; /* Verde Musgo (Outro destaque) */
+    --silver-mist: #c0c0c0; /* Prata/Cinza (Textos e divisórias) */
+    --cream-light: #f5f1e8; /* Fundo de texto/Fundo de conteúdo */
     
-   
+    /* Fontes */
     --font-heading: 'Playfair Display', serif;
     --font-body: 'Lora', serif;
-    --font-decorative: 'Lora', cursive;
+    --font-decorative: 'UnifrakturMaguntia', cursive; /* Fonte especial gótica */
     
-
+    /* Layout */
     --max-width-content: 800px;
     --section-spacing: 40px;
     --sidebar-width: 200px;
 }
 
-
+/* O fundo do BODY foi ajustado para usar a nova paleta: */
 body {
     font-family: var(--font-body);
-    background-color: var(--deep-purple);
+    background-color: var(--deep-purple); /* O novo roxo escuro */
     color: var(--cream-light);
     line-height: 1.6;
     font-size: 16px;
+    /* Manter a URL da imagem de fundo tileable, se tiver sido configurada */
+    /* Exemplo com cores atualizadas: */
     background-image: 
         url('assets/images/gothic_bg.png'),
         linear-gradient(45deg, var(--violet-dark) 25%, transparent 25%),
-        linear-gradient(-45deg, var(--violet-dark) 25%, transparent 25%);
-    background-size: cover, 20px 20px, 20px 20px;
-    background-attachment: fixed;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    border: 8px double var(--antique-gold);
-    margin: 5px;
+        linear-gradient(-45deg, var(--violet-dark) 25%, transparent 25%),
+        linear-gradient(45deg, var(--violet-dark) 75%, transparent 75%),
+        linear-gradient(-45deg, var(--violet-dark) 75%, transparent 75%);
+    background-size: 40px 40px, 40px 40px;
+    background-position: 0 0, 0 0;
+    margin: 15px; /* Borda visível para o tema */
+    border: 3px solid var(--antique-gold);
+    overflow-x: hidden; /* Garantir que não haja scroll horizontal */
 }
 
+/* Container principal para centralizar conteúdo */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 10px;
+    flex-grow: 1; 
+}
 
+/* Links */
+a {
+    text-decoration: none;
+    color: var(--moss-green); /* Links em verde musgo */
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--antique-gold);
+    text-decoration: underline;
+}
+
+/* Títulos */
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--antique-gold);
+    margin-bottom: 15px;
+}
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+
+p {
+    margin-bottom: 1em;
+}
+
+/* ============================================= */
+/* 2. Layout Principal (Sidebar e Main Content) */
+/* ============================================= */
 .main-container {
     display: flex;
     max-width: 1200px;
@@ -51,7 +90,7 @@ body {
     flex-grow: 1;
 }
 
-
+/* Sidebar */
 .sidebar {
     width: var(--sidebar-width);
     background: linear-gradient(135deg, var(--violet-dark), var(--deep-purple));
@@ -62,7 +101,6 @@ body {
     position: relative;
     min-height: 500px;
 }
-
 
 .sidebar-widget {
     background: rgba(0,0,0,0.3);
@@ -123,9 +161,7 @@ body {
     50% { opacity: 0; }
 }
 
-/* ============================================= */
-/* 4. Conteúdo principal atualizado */
-/* ============================================= */
+/* Conteúdo principal */
 .main-content {
     flex: 1;
     background: rgba(26, 20, 41, 0.8);
@@ -146,232 +182,8 @@ body {
 }
 
 /* ============================================= */
-/* 5. Header gótico extravagante */
+/* 3. Header e Navegação */
 /* ============================================= */
-.celestial-header {
-    background: 
-        linear-gradient(45deg, var(--violet-dark), var(--deep-purple)),
-        url('assets/images/header_bg.png');
-    border: 5px double var(--antique-gold);
-    padding: 15px 0;
-    margin: 10px;
-    position: relative;
-}
-
-.celestial-header::before,
-.celestial-header::after {
-    content: '♱';
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 2rem;
-    color: var(--dusty-rose);
-}
-
-.celestial-header::before { left: 20px; }
-.celestial-header::after { right: 20px; }
-
-.logo h1 {
-    font-family: var(--font-heading);
-    font-size: 2.5rem;
-    text-align: center;
-    color: var(--antique-gold);
-    text-shadow: 3px 3px 0 var(--deep-purple);
-    margin: 0;
-}
-
-/* ============================================= */
-/* 6. Navegação estilo anos 90 */
-/* ============================================= */
-nav ul {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    gap: 30px;
-    margin: 15px 0 0 0;
-    padding: 0;
-}
-
-.nav-link {
-    font-family: var(--font-decorative);
-    font-size: 1.2rem;
-    color: var(--silver-mist);
-    padding: 8px 15px;
-    border: 2px outset var(--dusty-rose);
-    background: var(--violet-dark);
-    text-decoration: none;
-}
-
-.nav-link:hover {
-    color: var(--antique-gold);
-    background: var(--deep-purple);
-    border: 2px inset var(--dusty-rose);
-    text-decoration: none;
-}
-
-/* ============================================= */
-/* 7. Seção Hero gótica */
-/* ============================================= */
-.hero-section {
-    background: rgba(0,0,0,0.5);
-    border: 4px ridge var(--antique-gold);
-    padding: 30px;
-    margin: 20px 0;
-    position: relative;
-}
-
-.hero-section::before {
-    content: '✧･ﾟ: *✧･ﾟ:* *:･ﾟ✧*:･ﾟ✧';
-    position: absolute;
-    top: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--deep-purple);
-    color: var(--dusty-rose);
-    padding: 0 15px;
-    font-size: 1.2rem;
-}
-
-.welcome-text h1 {
-    font-family: var(--font-heading);
-    font-size: 2.2rem;
-    color: var(--silver-mist);
-    text-align: center;
-    line-height: 1.3;
-    margin-bottom: 20px;
-}
-
-/* ============================================= */
-/* 8. Cartões de postagem extravagantes */
-/* ============================================= */
-.diary-post-card {
-    background: 
-        linear-gradient(135deg, var(--violet-dark), var(--deep-purple)),
-        url('assets/images/parchment_texture.png');
-    border: 3px groove var(--antique-gold);
-    padding: 25px;
-    margin: 20px 0;
-    position: relative;
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.7);
-}
-
-.diary-post-card::before {
-    content: '';
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    right: 5px;
-    bottom: 5px;
-    border: 1px dotted var(--dusty-rose);
-    pointer-events: none;
-}
-
-.post-header {
-    background: rgba(0,0,0,0.4);
-    border: 2px dotted var(--silver-mist);
-    padding: 10px;
-    margin-bottom: 15px;
-}
-
-.post-title {
-    font-family: var(--font-heading);
-    font-size: 1.8rem;
-    color: var(--antique-gold);
-    border-bottom: 2px wavy var(--dusty-rose);
-    padding-bottom: 10px;
-}
-
-
-.celestial-button {
-    background: 
-        linear-gradient(45deg, var(--violet-dark), var(--dusty-rose));
-    border: 3px outset var(--antique-gold);
-    color: var(--cream-light);
-    padding: 12px 25px;
-    font-family: var(--font-decorative);
-    font-size: 1.1rem;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
-    margin: 10px 5px;
-}
-
-.celestial-button:hover {
-    background: 
-        linear-gradient(45deg, var(--dusty-rose), var(--violet-dark));
-    border: 3px inset var(--antique-gold);
-    color: var(--antique-gold);
-    text-decoration: none;
-}
-
-
-.celestial-footer {
-    background: var(--deep-purple);
-    border: 4px double var(--silver-mist);
-    padding: 20px;
-    margin: 10px;
-    text-align: center;
-    position: relative;
-}
-
-.celestial-footer::before {
-    content: 'Visitor Count: ✦ 0000' counter(visitors, decimal) ' ✦';
-    position: absolute;
-    top: -12px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--violet-dark);
-    color: var(--antique-gold);
-    padding: 0 15px;
-    font-family: var(--font-body);
-}
-
-.cosmic-elements {
-    font-size: 1.5rem;
-    color: var(--dusty-rose);
-    margin: 15px 0;
-}
-
-
-.marquee-container {
-    background: var(--violet-dark);
-    border: 2px dotted var(--silver-mist);
-    padding: 10px;
-    margin: 20px 0;
-    overflow: hidden;
-}
-
-.marquee {
-    font-family: var(--font-decorative);
-    color: var(--antique-gold);
-    white-space: nowrap;
-    animation: marquee 15s linear infinite;
-}
-
-@keyframes marquee {
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(-100%); }
-}
-
-.gothic-divider {
-    text-align: center;
-    margin: 30px 0;
-    color: var(--dusty-rose);
-    font-size: 1.5rem;
-    letter-spacing: 10px;
-}
-
-
-.visitor-counter {
-    background: black;
-    border: 2px inset var(--silver-mist);
-    color: lime;
-    font-family: 'Courier New', monospace;
-    padding: 5px 10px;
-    margin: 10px auto;
-    width: fit-content;
-    font-size: 0.9rem;
-}
 
 .celestial-header {
     background: 
@@ -453,7 +265,104 @@ nav ul {
 }
 
 /* ============================================= */
-/* Footer Gótico Atualizado */
+/* 4. Seções de Conteúdo (Hero e Posts) */
+/* ============================================= */
+.hero-section {
+    background: rgba(0,0,0,0.5);
+    border: 4px ridge var(--antique-gold);
+    padding: 30px;
+    margin: 20px 0;
+    position: relative;
+}
+
+.hero-section::before {
+    content: '✧･ﾟ: *✧･ﾟ:* *:･ﾟ✧*:･ﾟ✧';
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--deep-purple);
+    color: var(--dusty-rose);
+    padding: 0 15px;
+    font-size: 1.2rem;
+}
+
+.welcome-text h1 {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    color: var(--silver-mist);
+    text-align: center;
+    line-height: 1.3;
+    margin-bottom: 20px;
+}
+
+/* Cartões de postagem extravagantes */
+.diary-post-card {
+    background: 
+        linear-gradient(135deg, var(--violet-dark), var(--deep-purple)),
+        url('assets/images/parchment_texture.png');
+    border: 3px groove var(--antique-gold);
+    padding: 25px;
+    margin: 20px 0;
+    position: relative;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.7);
+}
+
+.diary-post-card::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border: 1px dotted var(--dusty-rose);
+    pointer-events: none;
+}
+
+.post-header {
+    background: rgba(0,0,0,0.4);
+    border: 2px dotted var(--silver-mist);
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.post-title {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: var(--antique-gold); /* Corrigido para a nova paleta */
+    border-bottom: 2px wavy var(--dusty-rose);
+    padding-bottom: 10px;
+}
+
+.read-more-link {
+    color: var(--antique-gold); /* Corrigido para a nova paleta */
+}
+
+/* Botões */
+.celestial-button {
+    background: 
+        linear-gradient(45deg, var(--violet-dark), var(--dusty-rose));
+    border: 3px outset var(--antique-gold);
+    color: var(--cream-light);
+    padding: 12px 25px;
+    font-family: var(--font-decorative);
+    font-size: 1.1rem;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    margin: 10px 5px;
+}
+
+.celestial-button:hover {
+    background: 
+        linear-gradient(45deg, var(--dusty-rose), var(--violet-dark));
+    border: 3px inset var(--antique-gold);
+    color: var(--antique-gold);
+    text-decoration: none;
+}
+
+/* ============================================= */
+/* 5. Footer e Elementos Extra */
 /* ============================================= */
 .celestial-footer {
     background: var(--deep-purple);
@@ -596,36 +505,29 @@ nav ul {
     100% { transform: translateX(-100%); }
 }
 
-/* ============================================= */
-/* Responsividade */
-/* ============================================= */
-@media (max-width: 768px) {
-    .celestial-header::before,
-    .celestial-header::after {
-        display: none;
-    }
-    
-    .celestial-header nav ul {
-        flex-wrap: wrap;
-        gap: 10px;
-    }
-    
-    .footer-content {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .logo h1 {
-        font-size: 2.2rem;
-    }
-}/* ============================================= */
-/* 9. Responsividade (MOBILE-FIRST ADAPTATION) */
-/* ============================================= */
-
-/* Garantir que a página não tenha scroll horizontal em hipótese alguma */
-body {
-    overflow-x: hidden;
+.gothic-divider {
+    text-align: center;
+    margin: 30px 0;
+    color: var(--dusty-rose);
+    font-size: 1.5rem;
+    letter-spacing: 10px;
 }
+
+
+.visitor-counter {
+    background: black;
+    border: 2px inset var(--silver-mist);
+    color: lime;
+    font-family: 'Courier New', monospace;
+    padding: 5px 10px;
+    margin: 10px auto;
+    width: fit-content;
+    font-size: 0.9rem;
+}
+
+/* ============================================= */
+/* 6. Responsividade (MOBILE-FIRST ADAPTATION) */
+/* ============================================= */
 
 @media (max-width: 768px) {
     /* 1. LAYOUT PRINCIPAL: Mudar de lado a lado para empilhado */
@@ -645,7 +547,7 @@ body {
     }
     
     .sidebar::before {
-        font-size: 0.7rem; /* Reduzir texto "UNDER CONSTRUCTION" */
+        font-size: 0.7rem; /* Reduzir texto "UNDER CONSTRUCTION" (se existir) */
     }
     
     /* 3. CONTEÚDO PRINCIPAL: Ocupar a largura total e reduzir padding */
@@ -670,7 +572,7 @@ body {
     }
     
     .logo h1 {
-        font-size: 2.2rem;
+        font-size: 2rem; /* Reduzir tamanho da fonte principal */
     }
     
     .tagline {
@@ -720,20 +622,9 @@ body {
         width: 45px;
         height: 45px;
         font-size: 1.1rem;
-        /* Esconder o texto para não atrapalhar a visualização */
-        display: flex; 
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
     }
     
     .music-text {
-        display: none;
+        display: none; /* Esconder o texto do botão de música em mobile */
     }
-}
-.post-title{
-color: var(--antique-gold)
-}
-.read-more-link{
-color: var(--antique-gold)
 }

@@ -63,19 +63,6 @@ body {
     min-height: 500px;
 }
 
-.sidebar::before {
-    content: '✦ UNDER CONSTRUCTION ✦';
-    position: absolute;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--dusty-rose);
-    color: var(--deep-purple);
-    padding: 2px 10px;
-    font-size: 0.8rem;
-    font-weight: bold;
-    border: 2px dotted var(--antique-gold);
-}
 
 .sidebar-widget {
     background: rgba(0,0,0,0.3);

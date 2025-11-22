@@ -731,3 +731,9 @@ body {
         display: none;
     }
 }
+.post-title{
+color: var(--antique-gold)
+}
+.read-more-link{
+color: var(--antique-gold)
+}

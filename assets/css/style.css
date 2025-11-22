@@ -1,7 +1,7 @@
 
 :root {
     /* Paleta Solar e Lunar */
-    --blue-night: #2c3e50;    
+    --blue-night: #332c50;    
     --gold-dust: #e6b86e;       
      --cream-light: #fefcfb;     
     --gray-soft: #8e8a84;       
@@ -33,10 +33,10 @@ body {
     line-height: 1.7;
     font-size: 17px;
     position: relative;
-    /* Fundo com textura sutil (inspirado nas imagens) */
-    background-image: url('{{ site.baseurl }}assets/images/index_bg.png'); /* Adicione uma imagem de fundo aqui! */
+ 
+    background-image: url('assets/images/index_bg.png'); 
     background-size: cover;
-    background-attachment: fixed; /* Fundo fixo para efeito paralaxe sutil */
+    background-attachment: fixed; 
     background-position: center center;
     min-height: 100vh;
     display: flex;
@@ -143,18 +143,16 @@ nav ul {
     width: 100%;
 }
 
-/* ============================================= */
-/* 3. Seção Hero (Home) */
-/* ============================================= */
+
 
 .hero-section {
     display: flex;
-    flex-wrap: wrap; /* Permite quebrar em telas menores */
+    flex-wrap: wrap; 
     justify-content: center;
     align-items: center;
     padding: var(--section-spacing) 0;
     text-align: center;
-    min-height: calc(100vh - 120px); /* Ajusta altura para não sobrepor header/footer */
+    min-height: calc(100vh - 120px); 
 }
 
 .hero-content {
@@ -185,11 +183,11 @@ nav ul {
 .frame {
     width: 280px;
     height: 280px;
-    border-radius: 50%; /* Imagem redonda */
+    border-radius: 50%; 
     border: 3px solid var(--gold-dust);
     background-color: var(--blue-night);
     overflow: hidden;
-    box-shadow: 0 0 15px rgba(230, 184, 110, 0.5); /* Brilho dourado suave */
+    box-shadow: 0 0 15px rgba(230, 184, 110, 0.5); 
     position: relative;
 }
 .frame::before {
@@ -197,7 +195,7 @@ nav ul {
     position: absolute;
     top: 5px; left: 5px; right: 5px; bottom: 5px;
     border-radius: 50%;
-    border: 1px dashed var(--cream-light); /* Borda interna pontilhada */
+    border: 1px dashed var(--cream-light); 
 }
 
 .frame img {
@@ -207,9 +205,6 @@ nav ul {
     filter: grayscale(20%) sepia(10%); /* Filtro suave para foto antiga */
 }
 
-/* ============================================= */
-/* 4. Botões Estilo Celestial */
-/* ============================================= */
 
 .celestial-button {
     display: inline-flex;
@@ -244,7 +239,7 @@ nav ul {
     border-radius: 50%;
     padding: 0;
     font-size: 1.2rem;
-    position: fixed; /* Fixo para ser sempre acessível */
+    position: fixed; 
     bottom: 25px;
     right: 25px;
     z-index: 1000;
@@ -254,9 +249,7 @@ nav ul {
     color: var(--blue-night);
 }
 
-/* ============================================= */
-/* 5. Seção Diário (Página Separada) */
-/* ============================================= */
+
 
 .diary-section {
     padding: var(--section-spacing) 0;
@@ -291,7 +284,7 @@ nav ul {
     text-align: left;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
-    overflow: hidden; /* Para o efeito de canto */
+    overflow: hidden; 
 }
 
 .diary-post-card:hover {
@@ -299,7 +292,7 @@ nav ul {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
-/* Efeito de canto de página virada */
+
 .diary-post-card::before {
     content: '';
     position: absolute;
@@ -371,9 +364,7 @@ nav ul {
     margin-top: 0;
 }
 
-/* ============================================= */
-/* 6. Conteúdo de Postagem (Páginas Individuais) */
-/* ============================================= */
+
 .post-page {
     padding: var(--section-spacing) 0;
     max-width: 800px;
@@ -386,7 +377,7 @@ nav ul {
     text-align: left;
 }
 
-.post-page h1 { /* Título do post na página individual */
+.post-page h1 { 
     font-size: 2.5rem;
     text-align: center;
     margin-bottom: 30px;
@@ -434,9 +425,7 @@ nav ul {
     padding-left: 30px;
 }
 
-/* ============================================= */
-/* 7. Footer */
-/* ============================================= */
+
 
 .celestial-footer {
     background-color: rgba(44, 62, 80, 0.95);
@@ -445,7 +434,7 @@ nav ul {
     border-top: 1px solid var(--gold-dust);
     color: var(--gray-soft);
     font-size: 0.9rem;
-    margin-top: var(--section-spacing); /* Espaçamento entre conteúdo e footer */
+    margin-top: var(--section-spacing); 
 }
 
 .cosmic-elements {
@@ -457,9 +446,7 @@ nav ul {
     gap: 15px;
 }
 
-/* ============================================= */
-/* 8. Responsividade */
-/* ============================================= */
+
 
 @media (max-width: 768px) {
     h1 { font-size: 2rem; }
@@ -477,10 +464,10 @@ nav ul {
     }
     .hero-content {
         padding: 0;
-        order: 2; /* Texto abaixo da imagem */
+        order: 2; 
     }
     .hero-image {
-        order: 1; /* Imagem acima do texto */
+        order: 1; 
         margin-bottom: 30px;
     }
     .frame {
@@ -488,7 +475,7 @@ nav ul {
         height: 200px;
     }
     .post-grid {
-        grid-template-columns: 1fr; /* Uma coluna em mobile */
+        grid-template-columns: 1fr; 
     }
     .post-page {
         padding: 20px;

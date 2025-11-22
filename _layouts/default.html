@@ -9,19 +9,103 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <!-- Fontes góticas e nostálgicas -->
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Fallback para fontes nostálgicas */
+        @font-face {
+            font-family: 'GothicGeocities';
+            src: local('Papyrus'), local('Comic Sans MS'), local('Times New Roman');
+        }
+    </style>
 </head>
 <body>
 
     {% include header.html %}
 
-    <main class="container">
-        {{ content }}
-    </main>
+    <!-- Container principal com sidebar -->
+    <div class="main-container">
+        <!-- Sidebar estilo anos 90 -->
+        <aside class="sidebar">
+            <div class="sidebar-widget">
+                <h3>Navegação</h3>
+                <nav class="sidebar-nav">
+                    <ul>
+                        <li><a href="{{ site.baseurl }}/">🏠 Home</a></li>
+                        <li><a href="{{ site.baseurl }}/diario/">📖 Diário</a></li>
+                        <li><a href="{{ site.baseurl }}/reviews/">⭐ Reviews</a></li>
+                        <li><a href="#">🖼️ Galeria</a></li>
+                        <li><a href="#">📯 Links</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3>Sobre Mim</h3>
+                <p>Bem-vindo  ✨</p>
+                <p class="blink">NOVO: Diário atualizado!</p>
+                <div class="gothic-divider">♱♰♱</div>
+                <p><small>"I lived so carefully thinking someone was watching..."</small></p>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3>Status do Site</h3>
+                <p><i class="fas fa-moon"></i> Online</p>
+                <p><i class="fas fa-star"></i> Última atualização:</p>
+                <p>{{ site.time | date: "%d/%m/%Y" }}</p>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3>Webring</h3>
+                <p>[← Anterior] [Próximo →]</p>
+                <div class="visitor-counter">
+                    <i class="fas fa-eye"></i> Visitantes: <span id="counter">0042</span>
+                </div>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3>Minha Playlist</h3>
+                <ul class="sidebar-nav">
+                    <li>♫ Evanescence</li>
+                    <li>♫ Nightwish</li>
+                    <li>♫ Within Temptation</li>
+                    <li>♫ The Cure</li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Conteúdo principal -->
+        <main class="main-content">
+            {{ content }}
+        </main>
+    </div>
+
+    <!-- Marquee nostálgico -->
+    <div class="marquee-container">
+        <div class="marquee">
+            ✦ Bem-vindo ao {{ site.title }}! ✦ Email: dark_princess@hotmail.com ✦ Última atualização: {{ site.time | date: "%d/%m/%Y" }} ✦
+            ✦ Site melhor visualizado no Netscape Navigator 4.0 ✦
+        </div>
+    </div>
 
     {% include footer.html %}
     
+    <!-- Script simples para contador -->
+    <script>
+        // Contador de visitas "fake" nostálgico
+        document.addEventListener('DOMContentLoaded', function() {
+            const counter = document.getElementById('counter');
+            if (counter) {
+                let count = parseInt(counter.textContent) || 42;
+                setInterval(() => {
+                    count++;
+                    counter.textContent = count.toString().padStart(4, '0');
+                }, 30000); // Incrementa a cada 30 segundos
+            }
+        });
+    </script>
 </body>
 </html>

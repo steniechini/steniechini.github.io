@@ -1,10 +1,43 @@
 <footer class="celestial-footer">
     <div class="container">
-        <p>&copy; 2025 Stephanie Chini</p>
-        <div class="cosmic-elements">
-            <i class="fas fa-sun"></i> <i class="fas fa-moon"></i> <i class="fas fa-star"></i>
+        <!-- Marquee nostálgico -->
+        <div class="marquee-container">
+            <div class="marquee">
+                ✦ Bem-vindo ao meu mundo gótico! ✦ Email: ✦ Última atualização: {{ site.time | date: "%d/%m/%Y" }} ✦
+                ✦ Site melhor visualizado no Netscape Navigator 4.0 ✦
+            </div>
         </div>
-        <button id="music-toggle" class="celestial-button music-button" style="display: inline-flex; align-items: center; justify-content: center;">♪</button>
+
+        <div class="footer-content">
+            <div class="footer-section">
+                <p class="copyright">&copy; 2025 Stephanie Chini</p>
+                <p class="site-credits">designed with ♡ no frontpage</p>
+            </div>
+            
+            <div class="cosmic-elements">
+                <i class="fas fa-dragon"></i> 
+                <i class="fas fa-crow"></i> 
+                <i class="fas fa-cat"></i> 
+                <i class="fas fa-moon"></i> 
+                <i class="fas fa-skull"></i>
+            </div>
+
+            <div class="footer-section">
+                <div class="visitor-counter">
+                    <i class="fas fa-eye"></i> Visitantes: <span id="counter">0042</span>
+                </div>
+                <div class="webring">
+                    <a href="#">[← Anterior]</a> 
+                    <a href="#">[Próximo →]</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botão de música estilo anos 90 -->
+        <button id="music-toggle" class="celestial-button music-button" title="Toggle Y2K Music">
+            <i class="fas fa-music"></i>
+            <span class="music-text">♪ ON</span>
+        </button>
     </div>
 </footer>
 

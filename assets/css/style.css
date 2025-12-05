@@ -128,12 +128,7 @@ p {
     position: relative;
 }
 
-.sidebar-nav li::before {
-    content: '✩₊';
-    position: absolute;
-    left: 0;
-    color: var(--dusty-rose);
-}
+
 
 .sidebar-nav a {
     color: var(--silver-mist);

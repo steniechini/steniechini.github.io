@@ -3,7 +3,7 @@
     
     --deep-purple: #372549; 
     --violet-dark: #414675; 
-    --dusty-rose: #d8cf55; 
+    --dusty-rose: #fff9a1; 
     --antique-gold: #c6b578; 
     --moss-green: #7db807; 
     --silver-mist: #c0c0c0; 
@@ -414,9 +414,9 @@ p {
 }
 
 .visitor-counter {
-    background: black;
+    background: rgb(79, 52, 141);
     border: 2px inset var(--silver-mist);
-    color: lime;
+    color: rgb(255, 251, 0);
     font-family: 'Courier New', monospace;
     padding: 5px 10px;
     margin: 5px auto;
@@ -507,9 +507,9 @@ p {
 
 
 .visitor-counter {
-    background: black;
+    background: rgb(48, 60, 124);
     border: 2px inset var(--silver-mist);
-    color: lime;
+    color: rgb(217, 255, 0);
     font-family: 'Courier New', monospace;
     padding: 5px 10px;
     margin: 10px auto;

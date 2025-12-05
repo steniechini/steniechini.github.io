@@ -1,36 +1,33 @@
-/* ============================================= */
-/* 1. Variáveis atualizadas para Whimsical Gothic */
-/* ============================================= */
+
 :root {
-    /* Paleta Whimsical Gothic (Verde Musgo e Roxo Profundo) */
-    --deep-purple: #372549; /* Roxo escuro para o fundo (Nightshade) */
-    --violet-dark: #584175; /* Roxo ligeiramente mais claro para detalhes */
-    --dusty-rose: #a87661; /* Cor de acento (Bronze/Terracota) */
-    --antique-gold: #c6b578; /* Ouro envelhecido/Mostarda (Destaque principal) */
-    --moss-green: #8a9b68; /* Verde Musgo (Outro destaque) */
-    --silver-mist: #c0c0c0; /* Prata/Cinza (Textos e divisórias) */
-    --cream-light: #f5f1e8; /* Fundo de texto/Fundo de conteúdo */
     
-    /* Fontes */
+    --deep-purple: #372549; 
+    --violet-dark: #584175; 
+    --dusty-rose: #a87661; 
+    --antique-gold: #c6b578; 
+    --moss-green: #8a9b68; 
+    --silver-mist: #c0c0c0; 
+    --cream-light: #f5f1e8; 
+    
+    
     --font-heading: 'Playfair Display', serif;
     --font-body: 'Lora', serif;
-    --font-decorative: 'UnifrakturMaguntia', cursive; /* Fonte especial gótica */
+    --font-decorative: 'UnifrakturMaguntia', cursive; 
     
-    /* Layout */
+ 
     --max-width-content: 800px;
     --section-spacing: 40px;
     --sidebar-width: 200px;
 }
 
-/* O fundo do BODY foi ajustado para usar a nova paleta: */
+
 body {
     font-family: var(--font-body);
-    background-color: var(--deep-purple); /* O novo roxo escuro */
+    background-color: var(--deep-purple); 
     color: var(--cream-light);
     line-height: 1.6;
     font-size: 16px;
-    /* Manter a URL da imagem de fundo tileable, se tiver sido configurada */
-    /* Exemplo com cores atualizadas: */
+    
     background-image: 
         url('assets/images/gothic_bg.png'),
         linear-gradient(45deg, var(--violet-dark) 25%, transparent 25%),
@@ -39,9 +36,9 @@ body {
         linear-gradient(-45deg, var(--violet-dark) 75%, transparent 75%);
     background-size: 40px 40px, 40px 40px;
     background-position: 0 0, 0 0;
-    margin: 15px; /* Borda visível para o tema */
+    margin: 15px; 
     border: 3px solid var(--antique-gold);
-    overflow-x: hidden; /* Garantir que não haja scroll horizontal */
+    overflow-x: hidden; 
 }
 
 /* Container principal para centralizar conteúdo */
@@ -55,7 +52,7 @@ body {
 /* Links */
 a {
     text-decoration: none;
-    color: var(--moss-green); /* Links em verde musgo */
+    color: var(--moss-green); 
     transition: color 0.3s ease;
 }
 
@@ -79,9 +76,9 @@ p {
     margin-bottom: 1em;
 }
 
-/* ============================================= */
-/* 2. Layout Principal (Sidebar e Main Content) */
-/* ============================================= */
+
+/*  Layout Principal (Sidebar e Main Content) */
+
 .main-container {
     display: flex;
     max-width: 1200px;
@@ -149,7 +146,7 @@ p {
     text-decoration: overline underline;
 }
 
-/* Blink tag nostálgico */
+/* Blink tag */
 .blink {
     animation: blink 1s step-end infinite;
     color: var(--antique-gold);
@@ -181,9 +178,9 @@ p {
     background-size: contain;
 }
 
-/* ============================================= */
-/* 3. Header e Navegação */
-/* ============================================= */
+
+/*  Header e Navegação */
+
 
 .celestial-header {
     background: 
@@ -264,9 +261,9 @@ p {
     letter-spacing: 8px;
 }
 
-/* ============================================= */
-/* 4. Seções de Conteúdo (Hero e Posts) */
-/* ============================================= */
+
+/* Seções de Conteúdo (Hero e Posts) */
+
 .hero-section {
     background: rgba(0,0,0,0.5);
     border: 4px ridge var(--antique-gold);
@@ -329,13 +326,13 @@ p {
 .post-title {
     font-family: var(--font-heading);
     font-size: 1.8rem;
-    color: var(--antique-gold); /* Corrigido para a nova paleta */
+    color: var(--antique-gold);
     border-bottom: 2px wavy var(--dusty-rose);
     padding-bottom: 10px;
 }
 
 .read-more-link {
-    color: var(--antique-gold); /* Corrigido para a nova paleta */
+    color: var(--antique-gold); 
 }
 
 /* Botões */
@@ -361,9 +358,9 @@ p {
     text-decoration: none;
 }
 
-/* ============================================= */
-/* 5. Footer e Elementos Extra */
-/* ============================================= */
+
+/*  Footer e Elementos Extra */
+
 .celestial-footer {
     background: var(--deep-purple);
     border: 4px double var(--silver-mist);
@@ -525,63 +522,63 @@ p {
     font-size: 0.9rem;
 }
 
-/* ============================================= */
-/* 6. Responsividade (MOBILE-FIRST ADAPTATION) */
-/* ============================================= */
+
+/*  Responsividade  */
+
 
 @media (max-width: 768px) {
-    /* 1. LAYOUT PRINCIPAL: Mudar de lado a lado para empilhado */
+   
     .main-container {
         flex-direction: column;
-        max-width: 100%; /* Ocupar toda a largura disponível */
-        padding: 0 5px; /* Reduzir padding para aproveitar mais espaço */
+        max-width: 100%; 
+        padding: 0 5px; 
     }
 
-    /* 2. SIDEBAR: Ocupar a largura total e se comportar como um bloco normal */
+    
     .sidebar {
         width: 100%;
-        margin-right: 0; /* Remover margem lateral */
-        margin-bottom: 20px; /* Adicionar espaço entre sidebar e conteúdo principal */
-        min-height: auto; /* Permite que o sidebar diminua */
-        order: 1; /* Colocar a sidebar no topo em mobile, antes do conteúdo */
+        margin-right: 0; 
+        margin-bottom: 20px;
+        min-height: auto; 
+        order: 1;
     }
     
     .sidebar::before {
-        font-size: 0.7rem; /* Reduzir texto "UNDER CONSTRUCTION" (se existir) */
+        font-size: 0.7rem; 
     }
     
-    /* 3. CONTEÚDO PRINCIPAL: Ocupar a largura total e reduzir padding */
+    
     .main-content {
         padding: 15px;
-        order: 2; /* Manter o conteúdo após a sidebar */
+        order: 2; 
     }
     
     .main-content::after {
-        width: 30px; /* Reduzir o ícone de canto */
+        width: 30px; 
         height: 30px;
     }
 
-    /* 4. HEADER: Ajustar elementos e remover ícones laterais */
+    
     .celestial-header {
-        padding: 10px 0 5px 0; /* Header mais compacto */
+        padding: 10px 0 5px 0; 
     }
     
     .celestial-header::before,
     .celestial-header::after {
-        display: none; /* Esconder os ícones de cruz para economizar espaço */
+        display: none; 
     }
     
     .logo h1 {
-        font-size: 2rem; /* Reduzir tamanho da fonte principal */
+        font-size: 2rem; 
     }
     
     .tagline {
         font-size: 0.9rem;
     }
     
-    /* 5. NAVEGAÇÃO: Ajustar empacotamento e tamanho dos links */
+   
     .celestial-header nav ul {
-        flex-wrap: wrap; /* Permitir que os links quebrem a linha */
+        flex-wrap: wrap; 
         gap: 8px;
     }
     
@@ -590,21 +587,21 @@ p {
         padding: 6px 10px;
     }
 
-    /* 6. HERO: Ajustar tamanho do texto e espaçamento */
+    
     .hero-section {
         padding: 20px;
         margin: 15px 0;
     }
     
     .hero-section::before {
-        font-size: 1rem; /* Reduzir divisória */
+        font-size: 1rem;
     }
 
     .welcome-text h1 {
         font-size: 1.8rem;
     }
 
-    /* 7. RODAPÉ: Empilhar conteúdo do footer */
+    
     .celestial-footer {
         padding: 15px 10px;
     }
@@ -615,7 +612,7 @@ p {
         gap: 10px;
     }
     
-    /* 8. BOTÃO DE MÚSICA (Fixo) */
+  
     .music-button {
         bottom: 10px;
         right: 10px;
@@ -625,6 +622,6 @@ p {
     }
     
     .music-text {
-        display: none; /* Esconder o texto do botão de música em mobile */
+        display: none; 
     }
 }

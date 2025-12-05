@@ -195,7 +195,7 @@ p {
 
 .celestial-header::before,
 .celestial-header::after {
-    content: '♱';
+    content: '✦ ✩₊˚';
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
